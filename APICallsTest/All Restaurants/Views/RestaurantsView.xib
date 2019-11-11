@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="VM8-e2-9ea" customClass="RestaurantsView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9ms-yf-Xok">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="0.0" id="S1B-58-gnc">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rEz-if-lBN">
+                    <rect key="frame" x="197" y="443" width="20" height="20"/>
+                </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Restaurants found in this category" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmd-wx-HVG">
+                    <rect key="frame" x="45" y="282" width="325" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="HPU-cX-k5o" firstAttribute="trailing" secondItem="9ms-yf-Xok" secondAttribute="trailing" id="59y-u5-vIm"/>
+                <constraint firstItem="rEz-if-lBN" firstAttribute="top" secondItem="cmd-wx-HVG" secondAttribute="bottom" constant="137" id="EfT-vt-5Yu"/>
+                <constraint firstItem="9ms-yf-Xok" firstAttribute="top" secondItem="HPU-cX-k5o" secondAttribute="top" id="KUc-hQ-Jhb"/>
+                <constraint firstItem="HPU-cX-k5o" firstAttribute="bottom" secondItem="9ms-yf-Xok" secondAttribute="bottom" id="LlB-eG-Ajq"/>
+                <constraint firstItem="cmd-wx-HVG" firstAttribute="leading" secondItem="HPU-cX-k5o" secondAttribute="leading" constant="45" id="PLY-UV-wNx"/>
+                <constraint firstItem="rEz-if-lBN" firstAttribute="top" secondItem="HPU-cX-k5o" secondAttribute="top" constant="399" id="Ttd-Zn-8Hj"/>
+                <constraint firstItem="cmd-wx-HVG" firstAttribute="top" secondItem="HPU-cX-k5o" secondAttribute="top" constant="238" id="cuB-7O-Jou"/>
+                <constraint firstItem="HPU-cX-k5o" firstAttribute="trailing" secondItem="cmd-wx-HVG" secondAttribute="trailing" constant="44" id="fEY-Hd-RoO"/>
+                <constraint firstItem="HPU-cX-k5o" firstAttribute="trailing" secondItem="rEz-if-lBN" secondAttribute="trailing" constant="197" id="g12-zf-lpM"/>
+                <constraint firstItem="rEz-if-lBN" firstAttribute="leading" secondItem="HPU-cX-k5o" secondAttribute="leading" constant="197" id="kTy-6H-PvC"/>
+                <constraint firstItem="9ms-yf-Xok" firstAttribute="leading" secondItem="HPU-cX-k5o" secondAttribute="leading" id="qjQ-8M-XVf"/>
+                <constraint firstItem="HPU-cX-k5o" firstAttribute="bottom" secondItem="rEz-if-lBN" secondAttribute="bottom" constant="399" id="vit-c0-cAc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="HPU-cX-k5o"/>
+            <connections>
+                <outlet property="noResultMessage" destination="cmd-wx-HVG" id="QC8-FV-LSk"/>
+                <outlet property="restaurantsCollectionView" destination="9ms-yf-Xok" id="Eze-6H-1X0"/>
+                <outlet property="restaurantsLoader" destination="rEz-if-lBN" id="LKY-DF-9Mp"/>
+            </connections>
+            <point key="canvasLocation" x="113" y="49"/>
+        </view>
+    </objects>
+</document>
