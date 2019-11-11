@@ -45,6 +45,10 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
    return [_restaurants count];
 }
+- (IBAction)goToRestaurantsMap:(id)sender {
+   
+    [self performSegueWithIdentifier:@"MapSegue" sender:self.locationsAndNamesRestaurants];
+}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
    
@@ -64,6 +68,12 @@
       NSDictionary *info = (NSDictionary *)sender;
       srvc.selectedRestaurantInfo = info;
       srvc.selectedNavigationTitle.title = info[@"Name"];
+   }
+   else if ([segue.identifier isEqualToString:@"MapSegue"]) {
+      UINavigationController *naviCon = [segue destinationViewController];
+      RestaurantsMapViewController *rmvc = naviCon.viewControllers[0];
+      rmvc.listOfRestaurantsCoordinates = (NSMutableArray *)sender;
+      
    }
 }
 
@@ -109,7 +119,7 @@
                                   };
     
     _restaurants = [[NSMutableArray alloc] init];
-    
+   _locationsAndNamesRestaurants = [[NSMutableArray alloc] init];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -137,6 +147,11 @@
            Restaurant *restaurant = [[Restaurant alloc] initWithImageURL:thumbURL restaurantName:responseCategoryEnvelop[@"name"] restaurantTimings:responseCategoryEnvelop[@"timings"]
                restaurantID:responseCategoryEnvelop[@"id"]];
             [self.restaurants addObject:restaurant];
+           NSDictionary *restaurantAddressEnvelop = responseCategoryEnvelop[@"location"];
+           NSDictionary *restaurantLocationInfo = @{ @"name":responseCategoryEnvelop[@"name"],
+                                                     @"lat":restaurantAddressEnvelop[@"latitude"],
+                                                     @"long":restaurantAddressEnvelop[@"longitude"]};
+           [self.locationsAndNamesRestaurants addObject:restaurantLocationInfo];
         }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@",error);

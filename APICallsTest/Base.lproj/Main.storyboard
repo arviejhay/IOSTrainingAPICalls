@@ -29,6 +29,14 @@
             </objects>
             <point key="canvasLocation" x="623" y="21"/>
         </scene>
+        <!--RestaurantsMap-->
+        <scene sceneID="Cvm-so-DCu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RestaurantsMap" id="hEX-RT-zFV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9n-6d-IQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1575" y="508"/>
+        </scene>
         <!--Title-->
         <scene sceneID="0NE-1M-Ixd">
             <objects>
@@ -39,10 +47,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Gwu-LN-7eb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="2Ar-x5-RGY"/>
+                    <navigationItem key="navigationItem" title="Title" id="2Ar-x5-RGY">
+                        <barButtonItem key="rightBarButtonItem" title="Restaurants Map" id="J7e-tw-h7W">
+                            <connections>
+                                <action selector="goToRestaurantsMap:" destination="kkF-ck-2Cd" id="Czc-9f-kga"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="restaurantsMap" destination="J7e-tw-h7W" id="eNI-yg-k3K"/>
                         <outlet property="selectedCategoryTitle" destination="2Ar-x5-RGY" id="3hQ-Zp-h52"/>
                         <segue destination="is9-4b-1cH" kind="show" identifier="SelectedRestaurantSegue" id="3eD-4A-UjK"/>
+                        <segue destination="hEX-RT-zFV" kind="presentation" identifier="MapSegue" id="MFa-oS-k0I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRb-bO-P1G" userLabel="First Responder" sceneMemberID="firstResponder"/>

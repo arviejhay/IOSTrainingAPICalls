@@ -19,6 +19,10 @@
 		5B3469EA2375578D00EC4526 /* RestaurantsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3469E92375578D00EC4526 /* RestaurantsView.xib */; };
 		5B3469EE237557D800EC4526 /* RestaurantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3469ED237557D800EC4526 /* RestaurantCollectionViewCell.m */; };
 		5B3469F22375580300EC4526 /* RestaurantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3469F12375580300EC4526 /* RestaurantCollectionViewCell.xib */; };
+		5B77669823793DFF0079D0A1 /* RestaurantsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B77669723793DFF0079D0A1 /* RestaurantsMapViewController.m */; };
+		5B77669A23793E280079D0A1 /* RestaurantsMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B77669923793E280079D0A1 /* RestaurantsMap.storyboard */; };
+		5B77669D237944F20079D0A1 /* RestaurantMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B77669C237944F20079D0A1 /* RestaurantMapView.m */; };
+		5B77669F237945380079D0A1 /* RestaurantMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B77669E237945380079D0A1 /* RestaurantMapView.xib */; };
 		5B887736237720FE0037D78A /* SelectedRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B887735237720FE0037D78A /* SelectedRestaurant.m */; };
 		5B887739237721230037D78A /* SelectedRestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B887738237721230037D78A /* SelectedRestaurantViewController.m */; };
 		5B88773C2377213A0037D78A /* SelectedRestaurantView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B88773B2377213A0037D78A /* SelectedRestaurantView.m */; };
@@ -79,6 +83,12 @@
 		5B3469EC237557D800EC4526 /* RestaurantCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantCollectionViewCell.h; sourceTree = "<group>"; };
 		5B3469ED237557D800EC4526 /* RestaurantCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantCollectionViewCell.m; sourceTree = "<group>"; };
 		5B3469F12375580300EC4526 /* RestaurantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B77669623793DFF0079D0A1 /* RestaurantsMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantsMapViewController.h; sourceTree = "<group>"; };
+		5B77669723793DFF0079D0A1 /* RestaurantsMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantsMapViewController.m; sourceTree = "<group>"; };
+		5B77669923793E280079D0A1 /* RestaurantsMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RestaurantsMap.storyboard; sourceTree = "<group>"; };
+		5B77669B237944F20079D0A1 /* RestaurantMapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantMapView.h; sourceTree = "<group>"; };
+		5B77669C237944F20079D0A1 /* RestaurantMapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantMapView.m; sourceTree = "<group>"; };
+		5B77669E237945380079D0A1 /* RestaurantMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantMapView.xib; sourceTree = "<group>"; };
 		5B887734237720FE0037D78A /* SelectedRestaurant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedRestaurant.h; sourceTree = "<group>"; };
 		5B887735237720FE0037D78A /* SelectedRestaurant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedRestaurant.m; sourceTree = "<group>"; };
 		5B887737237721230037D78A /* SelectedRestaurantViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedRestaurantViewController.h; sourceTree = "<group>"; };
@@ -254,6 +264,43 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		5B77669223793D010079D0A1 /* Restaurants Map */ = {
+			isa = PBXGroup;
+			children = (
+				5B77669523793D1F0079D0A1 /* Controllers */,
+				5B77669423793D1B0079D0A1 /* Views */,
+				5B77669323793D150079D0A1 /* Models */,
+			);
+			path = "Restaurants Map";
+			sourceTree = "<group>";
+		};
+		5B77669323793D150079D0A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5B77669423793D1B0079D0A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B77669B237944F20079D0A1 /* RestaurantMapView.h */,
+				5B77669C237944F20079D0A1 /* RestaurantMapView.m */,
+				5B77669E237945380079D0A1 /* RestaurantMapView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B77669523793D1F0079D0A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B77669623793DFF0079D0A1 /* RestaurantsMapViewController.h */,
+				5B77669723793DFF0079D0A1 /* RestaurantsMapViewController.m */,
+				5B77669923793E280079D0A1 /* RestaurantsMap.storyboard */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		5B809C0F2376DE7F00BB8216 /* Selected Restaurant */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +364,7 @@
 		5BA117452375157C00508D05 /* APICallsTest */ = {
 			isa = PBXGroup;
 			children = (
+				5B77669223793D010079D0A1 /* Restaurants Map */,
 				5B809C0F2376DE7F00BB8216 /* Selected Restaurant */,
 				5B3469DB2375552200EC4526 /* All Restaurants */,
 				5B3469C52375185800EC4526 /* Home */,
@@ -361,6 +409,7 @@
 				5BA117402375157C00508D05 /* Frameworks */,
 				5BA117412375157C00508D05 /* Resources */,
 				FB94CA971C8FF2A1E83F34A2 /* [CP] Embed Pods Frameworks */,
+				598808BF68C331C5A24BD3C8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -399,6 +448,7 @@
 				5BA117632375157D00508D05 /* Frameworks */,
 				5BA117642375157D00508D05 /* Resources */,
 				B317E881094E14B45F3927F2 /* [CP] Embed Pods Frameworks */,
+				C1F8A19C99A63FF934E49E44 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -463,6 +513,8 @@
 				5B3469D0237518B300EC4526 /* HomeView.xib in Resources */,
 				5BA117502375157D00508D05 /* Assets.xcassets in Resources */,
 				5B3469F22375580300EC4526 /* RestaurantCollectionViewCell.xib in Resources */,
+				5B77669F237945380079D0A1 /* RestaurantMapView.xib in Resources */,
+				5B77669A23793E280079D0A1 /* RestaurantsMap.storyboard in Resources */,
 				5B3469D723751B9400EC4526 /* HomeTableViewCell.xib in Resources */,
 				5BA1174E2375157C00508D05 /* Main.storyboard in Resources */,
 			);
@@ -485,6 +537,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		598808BF68C331C5A24BD3C8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-APICallsTest/Pods-APICallsTest-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-APICallsTest/Pods-APICallsTest-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-APICallsTest/Pods-APICallsTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		64F286F4DF6B6541EF14CCF0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -546,6 +615,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-APICallsTest-APICallsTestUITests/Pods-APICallsTest-APICallsTestUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C1F8A19C99A63FF934E49E44 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-APICallsTest-APICallsTestUITests/Pods-APICallsTest-APICallsTestUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-APICallsTest-APICallsTestUITests/Pods-APICallsTest-APICallsTestUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-APICallsTest-APICallsTestUITests/Pods-APICallsTest-APICallsTestUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E5127913D5FCE6CD2A3DB732 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -594,6 +680,7 @@
 			files = (
 				5BA117562375157D00508D05 /* main.m in Sources */,
 				5B3469EE237557D800EC4526 /* RestaurantCollectionViewCell.m in Sources */,
+				5B77669823793DFF0079D0A1 /* RestaurantsMapViewController.m in Sources */,
 				5B3469E82375577F00EC4526 /* RestaurantsView.m in Sources */,
 				5B88773C2377213A0037D78A /* SelectedRestaurantView.m in Sources */,
 				5B3469E5237555F700EC4526 /* RestaurantsViewController.m in Sources */,
@@ -602,6 +689,7 @@
 				5B887739237721230037D78A /* SelectedRestaurantViewController.m in Sources */,
 				5B3469DA23752D9A00EC4526 /* Category.m in Sources */,
 				5B3469CE2375189800EC4526 /* HomeView.m in Sources */,
+				5B77669D237944F20079D0A1 /* RestaurantMapView.m in Sources */,
 				5B3469D523751B8600EC4526 /* HomeTableViewCell.m in Sources */,
 				5BA117482375157C00508D05 /* AppDelegate.m in Sources */,
 				5B3469CB2375188400EC4526 /* HomeViewController.m in Sources */,

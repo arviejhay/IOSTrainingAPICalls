@@ -19,4 +19,7 @@ target 'APICallsTest' do
   pod 'AFNetworking', '~> 3.0'
 
   pod 'SDWebImage', '~> 5.0'
+
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="qIC-hU-55W" customClass="RestaurantMapView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYf-tM-4Hw" userLabel="Google Map View" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="WYf-tM-4Hw" firstAttribute="top" secondItem="vah-0k-YEr" secondAttribute="top" id="3iy-dD-7Gm"/>
+                <constraint firstItem="vah-0k-YEr" firstAttribute="trailing" secondItem="WYf-tM-4Hw" secondAttribute="trailing" id="7GM-ge-oUr"/>
+                <constraint firstItem="WYf-tM-4Hw" firstAttribute="leading" secondItem="vah-0k-YEr" secondAttribute="leading" id="Avx-7U-gqk"/>
+                <constraint firstItem="WYf-tM-4Hw" firstAttribute="leading" secondItem="vah-0k-YEr" secondAttribute="leading" id="EZY-px-GBv"/>
+                <constraint firstItem="WYf-tM-4Hw" firstAttribute="top" secondItem="vah-0k-YEr" secondAttribute="top" id="FOd-0b-fGr"/>
+                <constraint firstItem="WYf-tM-4Hw" firstAttribute="trailing" secondItem="vah-0k-YEr" secondAttribute="trailing" id="K0n-xt-n7T"/>
+                <constraint firstItem="vah-0k-YEr" firstAttribute="bottom" secondItem="WYf-tM-4Hw" secondAttribute="bottom" id="Myd-YV-mGF"/>
+                <constraint firstItem="WYf-tM-4Hw" firstAttribute="bottom" secondItem="vah-0k-YEr" secondAttribute="bottom" id="euY-aZ-eFY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vah-0k-YEr"/>
+            <connections>
+                <outlet property="mapView" destination="WYf-tM-4Hw" id="4LH-vR-eCI"/>
+            </connections>
+            <point key="canvasLocation" x="-36.231884057971016" y="191.51785714285714"/>
+        </view>
+    </objects>
+</document>

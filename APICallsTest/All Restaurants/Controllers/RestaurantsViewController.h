@@ -14,6 +14,7 @@
 #import "../Models/Restaurant.h"
 #import "../Views/Cells/RestaurantCollectionViewCell.h"
 #import "../../Selected Restaurant/Controllers/SelectedRestaurantViewController.h"
+#import "../../Restaurants Map/Controllers/RestaurantsMapViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,7 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(copy, readwrite) NSString *selectedCategoryID;
 @property(weak, nonatomic) RestaurantsView *restaurantView;
 - (void)getAllRestaurantsBasedCategory;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *restaurantsMap;
 @property(copy, readwrite) NSMutableArray *restaurants;
+@property(copy, readwrite) NSMutableArray *locationsAndNamesRestaurants;
 @end
 
 NS_ASSUME_NONNULL_END

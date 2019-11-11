@@ -14,23 +14,36 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - GoogleMaps (3.6.0):
+    - GoogleMaps/Maps (= 3.6.0)
+  - GoogleMaps/Base (3.6.0)
+  - GoogleMaps/Maps (3.6.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.6.0):
+    - GoogleMaps/Base (= 3.6.0)
   - SDWebImage (5.3.1):
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - GoogleMaps
+  - GooglePlaces
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - GoogleMaps
+    - GooglePlaces
     - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
+  GooglePlaces: 1b9d29cf3e164903d873600f511f42acdfe85294
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
 
-PODFILE CHECKSUM: f53d4d5128efdf2d788daf6f71bf73acbbca8122
+PODFILE CHECKSUM: 88e8b1aa107726c5f30da13afd6d3542b44cfb02
 
 COCOAPODS: 1.8.4
