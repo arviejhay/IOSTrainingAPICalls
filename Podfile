@@ -22,4 +22,10 @@ target 'APICallsTest' do
 
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
+  pod 'JSQMessagesViewController', :git => 'https://github.com/FWAlex/JSQMessagesViewController.git'
 end

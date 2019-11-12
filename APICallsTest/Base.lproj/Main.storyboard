@@ -21,6 +21,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hum-GU-4tc"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="kkF-ck-2Cd" kind="show" identifier="CategorySegue" id="xbX-so-bCe"/>
                     </connections>
@@ -84,10 +85,14 @@
             </objects>
             <point key="canvasLocation" x="2428" y="21"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Categories-->
         <scene sceneID="jgF-89-fGU">
             <objects>
                 <navigationController id="V2j-Pv-qCq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Categories" id="hBa-CW-ey3">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5dX-mc-qHs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

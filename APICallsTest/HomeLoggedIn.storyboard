@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="81S-LS-GeK">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome-->
+        <scene sceneID="5pC-3A-47U">
+            <objects>
+                <viewController id="omB-iK-665" customClass="ChannelViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UUh-4H-RvR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ehh-Db-zax"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="4ey-AG-Qst">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="HfK-u2-OeI">
+                            <connections>
+                                <action selector="logOutButton:" destination="omB-iK-665" id="U1m-N7-WeA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="welcomeNavigationTitle" destination="4ey-AG-Qst" id="SNT-PQ-m6b"/>
+                        <segue destination="yHU-gk-Med" kind="show" identifier="ChatSegue" id="pQG-gd-NO7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYX-yl-fRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152" y="98"/>
+        </scene>
+        <!--Chat Name-->
+        <scene sceneID="r9r-eQ-1pc">
+            <objects>
+                <viewController id="yHU-gk-Med" customClass="MessageChatViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w76-qZ-XeA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="c1y-yj-ZW1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat Name" id="ah4-qa-QB1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKq-dv-Pxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="98"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="96y-2d-OfV">
+            <objects>
+                <navigationController id="81S-LS-GeK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QKl-5H-caJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="omB-iK-665" kind="relationship" relationship="rootViewController" id="fgR-It-Dwi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8As-ae-ipL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-981" y="98"/>
+        </scene>
+    </scenes>
+</document>

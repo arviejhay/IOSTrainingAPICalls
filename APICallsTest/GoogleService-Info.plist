@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>509513005666-o3me6tb7kqvqe27mij6p81fgs6rucje8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.509513005666-o3me6tb7kqvqe27mij6p81fgs6rucje8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBVArkr5fTlKPl4MWVfiO8job_Yziq-F7c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>509513005666</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>OPS.NotificationTest</string>
+	<key>PROJECT_ID</key>
+	<string>iosprojecttesting</string>
+	<key>STORAGE_BUCKET</key>
+	<string>iosprojecttesting.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:509513005666:ios:6ae4f633faf6dc31eb2f3b</string>
+	<key>DATABASE_URL</key>
+	<string>https://iosprojecttesting.firebaseio.com</string>
+</dict>
+</plist>

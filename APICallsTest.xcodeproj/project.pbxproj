@@ -19,6 +19,20 @@
 		5B3469EA2375578D00EC4526 /* RestaurantsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3469E92375578D00EC4526 /* RestaurantsView.xib */; };
 		5B3469EE237557D800EC4526 /* RestaurantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3469ED237557D800EC4526 /* RestaurantCollectionViewCell.m */; };
 		5B3469F22375580300EC4526 /* RestaurantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3469F12375580300EC4526 /* RestaurantCollectionViewCell.xib */; };
+		5B62104B237A787700509E2D /* BeforeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B62104A237A787700509E2D /* BeforeMain.storyboard */; };
+		5B62104F237A79E200509E2D /* Messenger.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B62104E237A79E200509E2D /* Messenger.storyboard */; };
+		5B621051237A7B6900509E2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B621050237A7B6900509E2D /* GoogleService-Info.plist */; };
+		5B621060237A7F9500509E2D /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B62105F237A7F9500509E2D /* LogInViewController.m */; };
+		5B621063237A802100509E2D /* LogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B621062237A802100509E2D /* LogInView.m */; };
+		5B621065237A803F00509E2D /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B621064237A803F00509E2D /* LogInView.xib */; };
+		5B621068237A8E1500509E2D /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B621067237A8E1500509E2D /* ChannelViewController.m */; };
+		5B62106B237A8E2400509E2D /* ChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B62106A237A8E2400509E2D /* ChannelView.m */; };
+		5B62106D237A8E3500509E2D /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B62106C237A8E3500509E2D /* ChannelView.xib */; };
+		5B621070237A8E6C00509E2D /* MessageChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B62106F237A8E6C00509E2D /* MessageChatViewController.m */; };
+		5B621073237A8E7B00509E2D /* MessageChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B621072237A8E7B00509E2D /* MessageChatView.m */; };
+		5B621075237A8ECE00509E2D /* MessageChatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B621074237A8ECE00509E2D /* MessageChatView.xib */; };
+		5B621081237A961000509E2D /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B621080237A961000509E2D /* AppSettings.m */; };
+		5B621083237AA6A900509E2D /* HomeLoggedIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B621082237AA6A900509E2D /* HomeLoggedIn.storyboard */; };
 		5B77669823793DFF0079D0A1 /* RestaurantsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B77669723793DFF0079D0A1 /* RestaurantsMapViewController.m */; };
 		5B77669A23793E280079D0A1 /* RestaurantsMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B77669923793E280079D0A1 /* RestaurantsMap.storyboard */; };
 		5B77669D237944F20079D0A1 /* RestaurantMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B77669C237944F20079D0A1 /* RestaurantMapView.m */; };
@@ -83,6 +97,27 @@
 		5B3469EC237557D800EC4526 /* RestaurantCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantCollectionViewCell.h; sourceTree = "<group>"; };
 		5B3469ED237557D800EC4526 /* RestaurantCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantCollectionViewCell.m; sourceTree = "<group>"; };
 		5B3469F12375580300EC4526 /* RestaurantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantCollectionViewCell.xib; sourceTree = "<group>"; };
+		5B62104A237A787700509E2D /* BeforeMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BeforeMain.storyboard; sourceTree = "<group>"; };
+		5B62104E237A79E200509E2D /* Messenger.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messenger.storyboard; sourceTree = "<group>"; };
+		5B621050237A7B6900509E2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B62105E237A7F9500509E2D /* LogInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		5B62105F237A7F9500509E2D /* LogInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		5B621061237A802100509E2D /* LogInView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogInView.h; sourceTree = "<group>"; };
+		5B621062237A802100509E2D /* LogInView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogInView.m; sourceTree = "<group>"; };
+		5B621064237A803F00509E2D /* LogInView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInView.xib; sourceTree = "<group>"; };
+		5B621066237A8E1500509E2D /* ChannelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
+		5B621067237A8E1500509E2D /* ChannelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelViewController.m; sourceTree = "<group>"; };
+		5B621069237A8E2400509E2D /* ChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelView.h; sourceTree = "<group>"; };
+		5B62106A237A8E2400509E2D /* ChannelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelView.m; sourceTree = "<group>"; };
+		5B62106C237A8E3500509E2D /* ChannelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelView.xib; sourceTree = "<group>"; };
+		5B62106E237A8E6C00509E2D /* MessageChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageChatViewController.h; sourceTree = "<group>"; };
+		5B62106F237A8E6C00509E2D /* MessageChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageChatViewController.m; sourceTree = "<group>"; };
+		5B621071237A8E7B00509E2D /* MessageChatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageChatView.h; sourceTree = "<group>"; };
+		5B621072237A8E7B00509E2D /* MessageChatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageChatView.m; sourceTree = "<group>"; };
+		5B621074237A8ECE00509E2D /* MessageChatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageChatView.xib; sourceTree = "<group>"; };
+		5B62107F237A961000509E2D /* AppSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSettings.h; sourceTree = "<group>"; };
+		5B621080237A961000509E2D /* AppSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSettings.m; sourceTree = "<group>"; };
+		5B621082237AA6A900509E2D /* HomeLoggedIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeLoggedIn.storyboard; sourceTree = "<group>"; };
 		5B77669623793DFF0079D0A1 /* RestaurantsMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantsMapViewController.h; sourceTree = "<group>"; };
 		5B77669723793DFF0079D0A1 /* RestaurantsMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantsMapViewController.m; sourceTree = "<group>"; };
 		5B77669923793E280079D0A1 /* RestaurantsMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RestaurantsMap.storyboard; sourceTree = "<group>"; };
@@ -264,6 +299,139 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		5B621052237A7EE400509E2D /* Log In */ = {
+			isa = PBXGroup;
+			children = (
+				5B621057237A7F1900509E2D /* Controllers */,
+				5B621056237A7F1100509E2D /* Views */,
+				5B621055237A7F0B00509E2D /* Models */,
+			);
+			path = "Log In";
+			sourceTree = "<group>";
+		};
+		5B621053237A7EEC00509E2D /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				5B62105A237A7F3B00509E2D /* Controllers */,
+				5B621059237A7F2800509E2D /* Views */,
+				5B621058237A7F2300509E2D /* Models */,
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
+		5B621054237A7EF300509E2D /* Message Chat */ = {
+			isa = PBXGroup;
+			children = (
+				5B62105D237A7F5700509E2D /* Controllers */,
+				5B62105C237A7F5100509E2D /* Views */,
+				5B62105B237A7F4100509E2D /* Models */,
+			);
+			path = "Message Chat";
+			sourceTree = "<group>";
+		};
+		5B621055237A7F0B00509E2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5B621056237A7F1100509E2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B621061237A802100509E2D /* LogInView.h */,
+				5B621062237A802100509E2D /* LogInView.m */,
+				5B621064237A803F00509E2D /* LogInView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B621057237A7F1900509E2D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B62105E237A7F9500509E2D /* LogInViewController.h */,
+				5B62105F237A7F9500509E2D /* LogInViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5B621058237A7F2300509E2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5B621059237A7F2800509E2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B621069237A8E2400509E2D /* ChannelView.h */,
+				5B62106A237A8E2400509E2D /* ChannelView.m */,
+				5B62106C237A8E3500509E2D /* ChannelView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B62105A237A7F3B00509E2D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B621066237A8E1500509E2D /* ChannelViewController.h */,
+				5B621067237A8E1500509E2D /* ChannelViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5B62105B237A7F4100509E2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5B62105C237A7F5100509E2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B621071237A8E7B00509E2D /* MessageChatView.h */,
+				5B621072237A8E7B00509E2D /* MessageChatView.m */,
+				5B621074237A8ECE00509E2D /* MessageChatView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B62105D237A7F5700509E2D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B62106E237A8E6C00509E2D /* MessageChatViewController.h */,
+				5B62106F237A8E6C00509E2D /* MessageChatViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5B621076237A91B700509E2D /* Class Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5B621078237A91D900509E2D /* Classes */,
+				5B621077237A91D200509E2D /* Delegates */,
+			);
+			path = "Class Utilities";
+			sourceTree = "<group>";
+		};
+		5B621077237A91D200509E2D /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		5B621078237A91D900509E2D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5B62107F237A961000509E2D /* AppSettings.h */,
+				5B621080237A961000509E2D /* AppSettings.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		5B77669223793D010079D0A1 /* Restaurants Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +532,11 @@
 		5BA117452375157C00508D05 /* APICallsTest */ = {
 			isa = PBXGroup;
 			children = (
+				5B621076237A91B700509E2D /* Class Utilities */,
+				5B621054237A7EF300509E2D /* Message Chat */,
+				5B621053237A7EEC00509E2D /* Channels */,
+				5B621052237A7EE400509E2D /* Log In */,
+				5B621050237A7B6900509E2D /* GoogleService-Info.plist */,
 				5B77669223793D010079D0A1 /* Restaurants Map */,
 				5B809C0F2376DE7F00BB8216 /* Selected Restaurant */,
 				5B3469DB2375552200EC4526 /* All Restaurants */,
@@ -375,6 +548,9 @@
 				5BA117512375157D00508D05 /* LaunchScreen.storyboard */,
 				5BA117542375157D00508D05 /* Info.plist */,
 				5BA117552375157D00508D05 /* main.m */,
+				5B62104A237A787700509E2D /* BeforeMain.storyboard */,
+				5B62104E237A79E200509E2D /* Messenger.storyboard */,
+				5B621082237AA6A900509E2D /* HomeLoggedIn.storyboard */,
 			);
 			path = APICallsTest;
 			sourceTree = "<group>";
@@ -507,7 +683,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B621083237AA6A900509E2D /* HomeLoggedIn.storyboard in Resources */,
+				5B62106D237A8E3500509E2D /* ChannelView.xib in Resources */,
+				5B621051237A7B6900509E2D /* GoogleService-Info.plist in Resources */,
+				5B62104F237A79E200509E2D /* Messenger.storyboard in Resources */,
 				5B88773E2377214B0037D78A /* SelectedRestaurantView.xib in Resources */,
+				5B621075237A8ECE00509E2D /* MessageChatView.xib in Resources */,
+				5B62104B237A787700509E2D /* BeforeMain.storyboard in Resources */,
+				5B621065237A803F00509E2D /* LogInView.xib in Resources */,
 				5BA117532375157D00508D05 /* LaunchScreen.storyboard in Resources */,
 				5B3469EA2375578D00EC4526 /* RestaurantsView.xib in Resources */,
 				5B3469D0237518B300EC4526 /* HomeView.xib in Resources */,
@@ -678,17 +861,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B621068237A8E1500509E2D /* ChannelViewController.m in Sources */,
 				5BA117562375157D00508D05 /* main.m in Sources */,
 				5B3469EE237557D800EC4526 /* RestaurantCollectionViewCell.m in Sources */,
 				5B77669823793DFF0079D0A1 /* RestaurantsMapViewController.m in Sources */,
 				5B3469E82375577F00EC4526 /* RestaurantsView.m in Sources */,
 				5B88773C2377213A0037D78A /* SelectedRestaurantView.m in Sources */,
+				5B621081237A961000509E2D /* AppSettings.m in Sources */,
 				5B3469E5237555F700EC4526 /* RestaurantsViewController.m in Sources */,
+				5B62106B237A8E2400509E2D /* ChannelView.m in Sources */,
 				5B3469E1237555C700EC4526 /* Restaurant.m in Sources */,
 				5B887736237720FE0037D78A /* SelectedRestaurant.m in Sources */,
+				5B621060237A7F9500509E2D /* LogInViewController.m in Sources */,
 				5B887739237721230037D78A /* SelectedRestaurantViewController.m in Sources */,
+				5B621073237A8E7B00509E2D /* MessageChatView.m in Sources */,
 				5B3469DA23752D9A00EC4526 /* Category.m in Sources */,
 				5B3469CE2375189800EC4526 /* HomeView.m in Sources */,
+				5B621070237A8E6C00509E2D /* MessageChatViewController.m in Sources */,
+				5B621063237A802100509E2D /* LogInView.m in Sources */,
 				5B77669D237944F20079D0A1 /* RestaurantMapView.m in Sources */,
 				5B3469D523751B8600EC4526 /* HomeTableViewCell.m in Sources */,
 				5BA117482375157C00508D05 /* AppDelegate.m in Sources */,

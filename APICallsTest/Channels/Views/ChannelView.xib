@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ox3-BN-CTC" customClass="ChannelView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y2Y-ai-iPV">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="y0e-Go-0ka" firstAttribute="trailing" secondItem="Y2Y-ai-iPV" secondAttribute="trailing" id="GW0-so-cRh"/>
+                <constraint firstItem="Y2Y-ai-iPV" firstAttribute="leading" secondItem="y0e-Go-0ka" secondAttribute="leading" id="Yii-My-cC9"/>
+                <constraint firstItem="Y2Y-ai-iPV" firstAttribute="top" secondItem="y0e-Go-0ka" secondAttribute="top" id="gav-q0-luy"/>
+                <constraint firstItem="y0e-Go-0ka" firstAttribute="bottom" secondItem="Y2Y-ai-iPV" secondAttribute="bottom" id="lqQ-DE-Hla"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="y0e-Go-0ka"/>
+            <connections>
+                <outlet property="ChannelsTableView" destination="Y2Y-ai-iPV" id="bKL-7r-wDB"/>
+            </connections>
+            <point key="canvasLocation" x="160" y="-31"/>
+        </view>
+    </objects>
+</document>
