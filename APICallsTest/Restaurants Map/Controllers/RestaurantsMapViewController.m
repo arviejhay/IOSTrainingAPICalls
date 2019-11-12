@@ -45,15 +45,32 @@
     
     for (id item in _listOfRestaurantsCoordinates)
     {
-        NSDictionary *restaurantLocation = item;
-        CLLocationCoordinate2D carolinaLocation;
-        carolinaLocation.latitude = [restaurantLocation[@"lat"] floatValue];
-        carolinaLocation.longitude = [restaurantLocation[@"long"] floatValue];
+        NSDictionary *restaurantInfo = item;
+        CLLocationCoordinate2D restaurantLocation;
+        restaurantLocation.latitude = [restaurantInfo[@"lat"] floatValue];
+        restaurantLocation.longitude = [restaurantInfo[@"long"] floatValue];
         
         GMSMarker *marker = [[GMSMarker alloc]init];
-        marker.position = carolinaLocation;
-        marker.title = restaurantLocation[@"name"];
-        marker.snippet = @"Snippet";
+        marker.position = restaurantLocation;
+        marker.title = restaurantInfo[@"name"];
+        float ratingRound = roundf([restaurantInfo[@"ratings"] floatValue]);
+        if (ratingRound == 0)
+        {
+            marker.snippet = @"Ratings: \u2606 \u2606 \u2606 \u2606 \u2606";
+        }
+        else {
+            NSMutableString *snippetMutable = [[NSMutableString alloc]initWithString:@"Ratings:"];
+            
+            for (int i = 0;i < (int)ratingRound;i++)
+            {
+                [snippetMutable appendString:@" \u272D"];
+            }
+            for (int i = 0;i < abs(((int)ratingRound - 5));i++)
+            {
+                [snippetMutable appendString:@" \u2606"];
+            }
+            marker.snippet = [NSString stringWithString:snippetMutable];
+        }
         marker.map = _restaurantMap.mapView;
     }
     
@@ -79,7 +96,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *crnLoc = [locations lastObject];
+    //CLLocation *crnLoc = [locations lastObject];
 }
 /*
 #pragma mark - Navigation

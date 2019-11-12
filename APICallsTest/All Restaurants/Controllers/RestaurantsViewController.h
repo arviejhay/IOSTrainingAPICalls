@@ -23,9 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(copy, readwrite) NSString *selectedCategoryID;
 @property(weak, nonatomic) RestaurantsView *restaurantView;
 - (void)getAllRestaurantsBasedCategory;
+- (void)setHiddenForBarButton:(BOOL)enabled;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *restaurantsMap;
 @property(copy, readwrite) NSMutableArray *restaurants;
-@property(copy, readwrite) NSMutableArray *locationsAndNamesRestaurants;
+@property(copy, readwrite) NSMutableArray *locationsInfoRestaurants;
 @end
 
 NS_ASSUME_NONNULL_END

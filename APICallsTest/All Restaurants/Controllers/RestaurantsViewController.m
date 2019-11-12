@@ -28,6 +28,7 @@
     
     [self.view addSubview:_restaurantView];
     [self.restaurantView.restaurantsLoader startAnimating];
+   [self setHiddenForBarButton:true];
     [self.restaurantView.restaurantsCollectionView setHidden:true];
     [self getAllRestaurantsBasedCategory];
     // Do any additional setup after loading the view.
@@ -47,7 +48,7 @@
 }
 - (IBAction)goToRestaurantsMap:(id)sender {
    
-    [self performSegueWithIdentifier:@"MapSegue" sender:self.locationsAndNamesRestaurants];
+    [self performSegueWithIdentifier:@"MapSegue" sender:self.locationsInfoRestaurants];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,7 +120,7 @@
                                   };
     
     _restaurants = [[NSMutableArray alloc] init];
-   _locationsAndNamesRestaurants = [[NSMutableArray alloc] init];
+   _locationsInfoRestaurants = [[NSMutableArray alloc] init];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -135,9 +136,12 @@
                {
                   [self.restaurantView.noResultMessage setHidden:false];
                }
-                [self.restaurantView.restaurantsCollectionView setHidden:false];
-                [self.restaurantView.restaurantsLoader stopAnimating];
-                [self.restaurantView.restaurantsCollectionView reloadData];
+               else {
+                  [self setHiddenForBarButton:false];
+                  [self.restaurantView.restaurantsCollectionView setHidden:false];
+                  [self.restaurantView.restaurantsLoader stopAnimating];
+                  [self.restaurantView.restaurantsCollectionView reloadData];
+               }
             });
         }
       for (id item in responseArray)
@@ -148,14 +152,22 @@
                restaurantID:responseCategoryEnvelop[@"id"]];
             [self.restaurants addObject:restaurant];
            NSDictionary *restaurantAddressEnvelop = responseCategoryEnvelop[@"location"];
+           NSDictionary *userRatings = responseCategoryEnvelop[@"user_rating"];
            NSDictionary *restaurantLocationInfo = @{ @"name":responseCategoryEnvelop[@"name"],
                                                      @"lat":restaurantAddressEnvelop[@"latitude"],
-                                                     @"long":restaurantAddressEnvelop[@"longitude"]};
-           [self.locationsAndNamesRestaurants addObject:restaurantLocationInfo];
+                                                     @"long":restaurantAddressEnvelop[@"longitude"],
+                                                     @"ratings":userRatings[@"aggregate_rating"]
+                                                     };
+           [self.locationsInfoRestaurants addObject:restaurantLocationInfo];
         }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@",error);
     }];
+}
+
+- (void)setHiddenForBarButton:(BOOL)enabled {
+   [self.restaurantsMap setEnabled:!enabled];
+   [self.restaurantsMap setTintColor: enabled ? [UIColor clearColor] : nil];
 }
 
 /*
