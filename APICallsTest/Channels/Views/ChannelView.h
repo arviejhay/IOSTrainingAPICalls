@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChannelView : UIView
-@property (weak, nonatomic) IBOutlet UITableView *ChannelsTableView;
+@property (weak, nonatomic) IBOutlet UITableView *channelsTableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *channelAddLoader;
 
 @end
 

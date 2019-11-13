@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AFNetworking/AFNetworking.h>
 #import <SDWebImage/SDWebImage.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "../Views/RestaurantsView.h"
 #import "../Models/Restaurant.h"
@@ -18,15 +19,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RestaurantsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface RestaurantsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationItem *selectedCategoryTitle;
-@property(copy, readwrite) NSString *selectedCategoryID;
-@property(weak, nonatomic) RestaurantsView *restaurantView;
-- (void)getAllRestaurantsBasedCategory;
-- (void)setHiddenForBarButton:(BOOL)enabled;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *restaurantsMap;
+
 @property(copy, readwrite) NSMutableArray *restaurants;
 @property(copy, readwrite) NSMutableArray *locationsInfoRestaurants;
+
+@property(strong, nonatomic) CLLocationManager* locationManager;
+
+@property(copy, readwrite) NSString *selectedCategoryID;
+
+@property(weak, nonatomic) RestaurantsView *restaurantView;
+
+@property(copy, readwrite) NSString *latitude;
+@property(copy, readwrite) NSString *longtitude;
+
+- (void)getAllRestaurantsBasedCategoryWithLatitude:(NSString *)latitude andLongtitude:(NSString *)lon;
+- (void)setHiddenForBarButton:(BOOL)enabled;
+- (void)startLocationService;
 @end
 
 NS_ASSUME_NONNULL_END

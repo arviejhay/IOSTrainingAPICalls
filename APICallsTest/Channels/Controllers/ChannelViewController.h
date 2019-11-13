@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FirebaseAuth/FirebaseAuth.h>
+#import <FirebaseFirestore/FirebaseFirestore.h>
 
 #import "../Views/ChannelView.h"
 
 #import "../../Class Utilities/Classes/AppSettings.h"
+#import "../Views/Cell/ChannelTableViewCell.h"
+#import "../Models/Channel.h"
+#import "../../Message Chat/Controllers/MessageChatViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChannelViewController : UIViewController
+@interface ChannelViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *welcomeNavigationTitle;
 @property(weak, nonatomic) ChannelView *channelView;
 @end

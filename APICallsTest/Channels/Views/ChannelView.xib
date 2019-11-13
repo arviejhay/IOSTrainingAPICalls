@@ -20,17 +20,25 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gXm-KQ-Szn">
+                    <rect key="frame" x="197" y="438" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="y0e-Go-0ka" firstAttribute="bottom" secondItem="gXm-KQ-Szn" secondAttribute="bottom" constant="404" id="46A-35-jjS"/>
+                <constraint firstItem="gXm-KQ-Szn" firstAttribute="top" secondItem="y0e-Go-0ka" secondAttribute="top" constant="394" id="GH3-1o-RQP"/>
                 <constraint firstItem="y0e-Go-0ka" firstAttribute="trailing" secondItem="Y2Y-ai-iPV" secondAttribute="trailing" id="GW0-so-cRh"/>
+                <constraint firstItem="y0e-Go-0ka" firstAttribute="trailing" secondItem="gXm-KQ-Szn" secondAttribute="trailing" constant="197" id="YT1-2Y-5dw"/>
                 <constraint firstItem="Y2Y-ai-iPV" firstAttribute="leading" secondItem="y0e-Go-0ka" secondAttribute="leading" id="Yii-My-cC9"/>
+                <constraint firstItem="gXm-KQ-Szn" firstAttribute="leading" secondItem="y0e-Go-0ka" secondAttribute="leading" constant="197" id="ZBU-Mn-C3g"/>
                 <constraint firstItem="Y2Y-ai-iPV" firstAttribute="top" secondItem="y0e-Go-0ka" secondAttribute="top" id="gav-q0-luy"/>
                 <constraint firstItem="y0e-Go-0ka" firstAttribute="bottom" secondItem="Y2Y-ai-iPV" secondAttribute="bottom" id="lqQ-DE-Hla"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="y0e-Go-0ka"/>
             <connections>
                 <outlet property="ChannelsTableView" destination="Y2Y-ai-iPV" id="bKL-7r-wDB"/>
+                <outlet property="channelAddLoader" destination="gXm-KQ-Szn" id="jtL-rt-e4R"/>
             </connections>
             <point key="canvasLocation" x="160" y="-31"/>
         </view>

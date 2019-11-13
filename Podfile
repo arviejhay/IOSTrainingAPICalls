@@ -27,5 +27,6 @@ target 'APICallsTest' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Database'
   pod 'JSQMessagesViewController', :git => 'https://github.com/FWAlex/JSQMessagesViewController.git'
 end

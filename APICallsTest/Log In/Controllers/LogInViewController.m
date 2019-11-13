@@ -29,7 +29,6 @@
     [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         //FIRUser *user = authResult.user;
         [[AppSettings shared] setUsername:self.loginView.userNameTextField.text];
-        //NSLog(@"%@",[[AppSettings shared] getUsername]);
         [self performSegueWithIdentifier:@"ChannelSegue" sender:self];
     }];
 }

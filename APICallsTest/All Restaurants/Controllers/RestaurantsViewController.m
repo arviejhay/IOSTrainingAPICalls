@@ -30,7 +30,9 @@
     [self.restaurantView.restaurantsLoader startAnimating];
    [self setHiddenForBarButton:true];
     [self.restaurantView.restaurantsCollectionView setHidden:true];
-    [self getAllRestaurantsBasedCategory];
+   [self startLocationService];
+   [_locationManager stopUpdatingLocation];
+   [self getAllRestaurantsBasedCategoryWithLatitude:_latitude andLongtitude:_longtitude];
     // Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,6 +43,26 @@
 {
    [super viewDidDisappear:animated];
    [self.restaurantView.noResultMessage setHidden:false];
+}
+
+- (void)startLocationService {
+   if (_locationManager == nil) {
+      _locationManager = [[CLLocationManager alloc]init];
+      _locationManager.delegate = self;
+      _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+      [_locationManager requestLocation];
+   }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+   NSString *msg = [NSString stringWithFormat:@"There was an error retrieving your location/%@",error.localizedDescription];
+   NSLog(@"Error: %@",msg);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+   CLLocation *crnLoc = [locations lastObject];
+   _latitude = [[NSNumber numberWithDouble:crnLoc.coordinate.latitude] stringValue];
+   _longtitude = [[NSNumber numberWithDouble:crnLoc.coordinate.longitude] stringValue];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -108,7 +130,7 @@
     return CGSizeMake(computedWidth, computedHeight);
 }
 
-- (void)getAllRestaurantsBasedCategory {
+- (void)getAllRestaurantsBasedCategoryWithLatitude:(NSString *)latitude andLongtitude:(NSString *)lon {
     NSString *restaurantsUrl = @"https://developers.zomato.com/api/v2.1/search";
     NSString *apiKey = @"6594c38d89f197460bbbdf9b03123d85";
     NSDictionary *parameters = @{ @"category":_selectedCategoryID,

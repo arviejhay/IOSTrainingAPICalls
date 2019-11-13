@@ -21,7 +21,6 @@
 		5B3469F22375580300EC4526 /* RestaurantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3469F12375580300EC4526 /* RestaurantCollectionViewCell.xib */; };
 		5B62104B237A787700509E2D /* BeforeMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B62104A237A787700509E2D /* BeforeMain.storyboard */; };
 		5B62104F237A79E200509E2D /* Messenger.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B62104E237A79E200509E2D /* Messenger.storyboard */; };
-		5B621051237A7B6900509E2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B621050237A7B6900509E2D /* GoogleService-Info.plist */; };
 		5B621060237A7F9500509E2D /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B62105F237A7F9500509E2D /* LogInViewController.m */; };
 		5B621063237A802100509E2D /* LogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B621062237A802100509E2D /* LogInView.m */; };
 		5B621065237A803F00509E2D /* LogInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B621064237A803F00509E2D /* LogInView.xib */; };
@@ -48,6 +47,11 @@
 		5BA117562375157D00508D05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA117552375157D00508D05 /* main.m */; };
 		5BA117602375157D00508D05 /* APICallsTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1175F2375157D00508D05 /* APICallsTestTests.m */; };
 		5BA1176B2375157D00508D05 /* APICallsTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1176A2375157D00508D05 /* APICallsTestUITests.m */; };
+		5BF6D86C237B8544007F2A57 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6D86B237B8544007F2A57 /* ChannelTableViewCell.m */; };
+		5BF6D86E237B8558007F2A57 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF6D86D237B8558007F2A57 /* ChannelTableViewCell.xib */; };
+		5BF6D871237B9C5D007F2A57 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6D870237B9C5D007F2A57 /* Channel.m */; };
+		5BF6D875237BE388007F2A57 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6D874237BE388007F2A57 /* Message.m */; };
+		5BF6D877237BFD24007F2A57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BF6D876237BFD24007F2A57 /* GoogleService-Info.plist */; };
 		76E471AD9A9E9D56BE9EFE95 /* Pods_APICallsTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55E7E6867F2EF620B92DC2E7 /* Pods_APICallsTest.framework */; };
 		86F1B5FE70673A62DA93DD9C /* Pods_APICallsTest_APICallsTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06A9BA3B9A374BA55190FF8 /* Pods_APICallsTest_APICallsTestUITests.framework */; };
 		BEC476CC061C9512A05F3750 /* Pods_APICallsTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0568305DE0D7989935F60A13 /* Pods_APICallsTestTests.framework */; };
@@ -99,7 +103,6 @@
 		5B3469F12375580300EC4526 /* RestaurantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantCollectionViewCell.xib; sourceTree = "<group>"; };
 		5B62104A237A787700509E2D /* BeforeMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BeforeMain.storyboard; sourceTree = "<group>"; };
 		5B62104E237A79E200509E2D /* Messenger.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messenger.storyboard; sourceTree = "<group>"; };
-		5B621050237A7B6900509E2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B62105E237A7F9500509E2D /* LogInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		5B62105F237A7F9500509E2D /* LogInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		5B621061237A802100509E2D /* LogInView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogInView.h; sourceTree = "<group>"; };
@@ -145,6 +148,15 @@
 		5BA117662375157D00508D05 /* APICallsTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APICallsTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA1176A2375157D00508D05 /* APICallsTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APICallsTestUITests.m; sourceTree = "<group>"; };
 		5BA1176C2375157D00508D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BF6D86A237B8544007F2A57 /* ChannelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelTableViewCell.h; sourceTree = "<group>"; };
+		5BF6D86B237B8544007F2A57 /* ChannelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelTableViewCell.m; sourceTree = "<group>"; };
+		5BF6D86D237B8558007F2A57 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
+		5BF6D86F237B9C5D007F2A57 /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		5BF6D870237B9C5D007F2A57 /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		5BF6D872237BA650007F2A57 /* DatabasePresentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabasePresentation.h; sourceTree = "<group>"; };
+		5BF6D873237BE388007F2A57 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		5BF6D874237BE388007F2A57 /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		5BF6D876237BFD24007F2A57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99339C0A04CA83AAFF54F84E /* Pods-APICallsTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APICallsTestTests.debug.xcconfig"; path = "Target Support Files/Pods-APICallsTestTests/Pods-APICallsTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1B7F9E7BA6B4E87358F6304 /* Pods-APICallsTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APICallsTest.debug.xcconfig"; path = "Target Support Files/Pods-APICallsTest/Pods-APICallsTest.debug.xcconfig"; sourceTree = "<group>"; };
 		F06A9BA3B9A374BA55190FF8 /* Pods_APICallsTest_APICallsTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APICallsTest_APICallsTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,8 +351,8 @@
 		5B621056237A7F1100509E2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B621061237A802100509E2D /* LogInView.h */,
 				5B621062237A802100509E2D /* LogInView.m */,
+				5B621061237A802100509E2D /* LogInView.h */,
 				5B621064237A803F00509E2D /* LogInView.xib */,
 			);
 			path = Views;
@@ -358,6 +370,9 @@
 		5B621058237A7F2300509E2D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5BF6D86F237B9C5D007F2A57 /* Channel.h */,
+				5BF6D870237B9C5D007F2A57 /* Channel.m */,
+				5BF6D872237BA650007F2A57 /* DatabasePresentation.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -365,6 +380,7 @@
 		5B621059237A7F2800509E2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5BF6D869237B8529007F2A57 /* Cell */,
 				5B621069237A8E2400509E2D /* ChannelView.h */,
 				5B62106A237A8E2400509E2D /* ChannelView.m */,
 				5B62106C237A8E3500509E2D /* ChannelView.xib */,
@@ -384,6 +400,8 @@
 		5B62105B237A7F4100509E2D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5BF6D873237BE388007F2A57 /* Message.h */,
+				5BF6D874237BE388007F2A57 /* Message.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -532,11 +550,11 @@
 		5BA117452375157C00508D05 /* APICallsTest */ = {
 			isa = PBXGroup;
 			children = (
+				5BF6D876237BFD24007F2A57 /* GoogleService-Info.plist */,
 				5B621076237A91B700509E2D /* Class Utilities */,
 				5B621054237A7EF300509E2D /* Message Chat */,
 				5B621053237A7EEC00509E2D /* Channels */,
 				5B621052237A7EE400509E2D /* Log In */,
-				5B621050237A7B6900509E2D /* GoogleService-Info.plist */,
 				5B77669223793D010079D0A1 /* Restaurants Map */,
 				5B809C0F2376DE7F00BB8216 /* Selected Restaurant */,
 				5B3469DB2375552200EC4526 /* All Restaurants */,
@@ -571,6 +589,16 @@
 				5BA1176C2375157D00508D05 /* Info.plist */,
 			);
 			path = APICallsTestUITests;
+			sourceTree = "<group>";
+		};
+		5BF6D869237B8529007F2A57 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5BF6D86A237B8544007F2A57 /* ChannelTableViewCell.h */,
+				5BF6D86B237B8544007F2A57 /* ChannelTableViewCell.m */,
+				5BF6D86D237B8558007F2A57 /* ChannelTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -685,7 +713,6 @@
 			files = (
 				5B621083237AA6A900509E2D /* HomeLoggedIn.storyboard in Resources */,
 				5B62106D237A8E3500509E2D /* ChannelView.xib in Resources */,
-				5B621051237A7B6900509E2D /* GoogleService-Info.plist in Resources */,
 				5B62104F237A79E200509E2D /* Messenger.storyboard in Resources */,
 				5B88773E2377214B0037D78A /* SelectedRestaurantView.xib in Resources */,
 				5B621075237A8ECE00509E2D /* MessageChatView.xib in Resources */,
@@ -695,7 +722,9 @@
 				5B3469EA2375578D00EC4526 /* RestaurantsView.xib in Resources */,
 				5B3469D0237518B300EC4526 /* HomeView.xib in Resources */,
 				5BA117502375157D00508D05 /* Assets.xcassets in Resources */,
+				5BF6D877237BFD24007F2A57 /* GoogleService-Info.plist in Resources */,
 				5B3469F22375580300EC4526 /* RestaurantCollectionViewCell.xib in Resources */,
+				5BF6D86E237B8558007F2A57 /* ChannelTableViewCell.xib in Resources */,
 				5B77669F237945380079D0A1 /* RestaurantMapView.xib in Resources */,
 				5B77669A23793E280079D0A1 /* RestaurantsMap.storyboard in Resources */,
 				5B3469D723751B9400EC4526 /* HomeTableViewCell.xib in Resources */,
@@ -866,13 +895,16 @@
 				5B3469EE237557D800EC4526 /* RestaurantCollectionViewCell.m in Sources */,
 				5B77669823793DFF0079D0A1 /* RestaurantsMapViewController.m in Sources */,
 				5B3469E82375577F00EC4526 /* RestaurantsView.m in Sources */,
+				5BF6D86C237B8544007F2A57 /* ChannelTableViewCell.m in Sources */,
 				5B88773C2377213A0037D78A /* SelectedRestaurantView.m in Sources */,
 				5B621081237A961000509E2D /* AppSettings.m in Sources */,
 				5B3469E5237555F700EC4526 /* RestaurantsViewController.m in Sources */,
 				5B62106B237A8E2400509E2D /* ChannelView.m in Sources */,
 				5B3469E1237555C700EC4526 /* Restaurant.m in Sources */,
 				5B887736237720FE0037D78A /* SelectedRestaurant.m in Sources */,
+				5BF6D875237BE388007F2A57 /* Message.m in Sources */,
 				5B621060237A7F9500509E2D /* LogInViewController.m in Sources */,
+				5BF6D871237B9C5D007F2A57 /* Channel.m in Sources */,
 				5B887739237721230037D78A /* SelectedRestaurantViewController.m in Sources */,
 				5B621073237A8E7B00509E2D /* MessageChatView.m in Sources */,
 				5B3469DA23752D9A00EC4526 /* Category.m in Sources */,

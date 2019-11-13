@@ -24,8 +24,6 @@
     
     [self.view addSubview:_restaurantMap];
     
-    NSLog(@"%@",_listOfRestaurantsCoordinates);
-    
     [self startupMap];
     [self startLocationServices];
     // Do any additional setup after loading the view.
@@ -37,11 +35,8 @@
 
 - (void)startupMap {
     
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:14.2190864 longitude:121.0449656];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86 longitude:151.20 zoom:_zoom];
-    _restaurantMap.mapView.camera = camera;
-    _restaurantMap.mapView.myLocationEnabled = true;
-    [self centerToLocation:location];
+    //CLLocation *location = [[CLLocation alloc] initWithLatitude:14.2190864 longitude:121.0449656];
+    //[self centerToLocation:location];
     
     for (id item in _listOfRestaurantsCoordinates)
     {
@@ -88,15 +83,17 @@
 - (void)centerToLocation:(CLLocation *)location {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude zoom:_zoom];
     _restaurantMap.mapView.camera = camera;
+    _restaurantMap.mapView.myLocationEnabled = true;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSString *msg = [NSString stringWithFormat:@"There was an error retrieving your location/%@",error.localizedDescription];
-    NSLog(@"%@",msg);
+    NSLog(@"Error: %@",msg);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    //CLLocation *crnLoc = [locations lastObject];
+    CLLocation *crnLoc = [locations lastObject];
+    [self centerToLocation:crnLoc];
 }
 /*
 #pragma mark - Navigation

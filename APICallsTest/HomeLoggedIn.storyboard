@@ -21,13 +21,19 @@
                         <viewLayoutGuide key="safeArea" id="ehh-Db-zax"/>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="4ey-AG-Qst">
-                        <barButtonItem key="rightBarButtonItem" title="Log out" id="HfK-u2-OeI">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="HfK-u2-OeI">
                             <connections>
                                 <action selector="logOutButton:" destination="omB-iK-665" id="U1m-N7-WeA"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nYa-K1-uRm">
+                            <connections>
+                                <action selector="didTapAddChannel:" destination="omB-iK-665" id="h7z-7X-u7h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="didTapAddChannel" destination="nYa-K1-uRm" id="rpk-u0-IBd"/>
                         <outlet property="welcomeNavigationTitle" destination="4ey-AG-Qst" id="SNT-PQ-m6b"/>
                         <segue destination="yHU-gk-Med" kind="show" identifier="ChatSegue" id="pQG-gd-NO7"/>
                     </connections>
@@ -47,6 +53,9 @@
                         <viewLayoutGuide key="safeArea" id="c1y-yj-ZW1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chat Name" id="ah4-qa-QB1"/>
+                    <connections>
+                        <outlet property="channelName" destination="ah4-qa-QB1" id="gEh-Ew-S1I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKq-dv-Pxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
