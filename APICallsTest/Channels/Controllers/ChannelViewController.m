@@ -50,7 +50,6 @@
     _channelView.channelsTableView.dataSource = self;
     
     [self.view addSubview:_channelView];
-    
     _welcomeNavigationTitle.title = [NSString stringWithFormat:@"Welcome, %@",[[AppSettings shared] getUsername]];
     
     _db = [FIRFirestore firestore];
@@ -104,7 +103,6 @@
         [self showAlertWith:@"Name Already Exist! Please try another name"];
     }
     else if (isExist == false){
-        NSLog(@"%@",_channelRef.collectionID);
         [_channels addObject:channel];
         NSInteger index = [_channels count] - 1;
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
@@ -259,6 +257,7 @@
     {
         MessageChatViewController *mcvc = [segue destinationViewController];
         mcvc.channel = (Channel *)sender;
+        mcvc.user = _currentUser;
     }
 }
 
@@ -270,7 +269,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         Channel *channel = _channels[indexPath.row];
-        [[_channelRef documentWithPath:@""] deleteDocument];
+        [[_channelRef documentWithPath:channel.channelID] deleteDocument];
     }
 }
 /*

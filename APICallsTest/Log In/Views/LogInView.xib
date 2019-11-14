@@ -17,25 +17,31 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eOq-lw-v6s">
-                    <rect key="frame" x="125" y="409" width="164" height="30"/>
+                    <rect key="frame" x="100" y="409" width="214" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6y-R8-7kZ">
-                    <rect key="frame" x="186" y="525" width="42" height="30"/>
-                    <state key="normal" title="Log In"/>
+                    <rect key="frame" x="100" y="459" width="214" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.56620724720000004" blue="0.056581443090000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Log In">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="didTapLogin:" destination="rwV-Bh-Sz9" eventType="touchUpInside" id="M1K-5B-YFq"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="eOq-lw-v6s" firstAttribute="leading" secondItem="rwV-Bh-Sz9" secondAttribute="leading" constant="125" id="2uP-17-6Rd"/>
-                <constraint firstItem="p6y-R8-7kZ" firstAttribute="top" secondItem="eOq-lw-v6s" secondAttribute="bottom" constant="86" id="MyR-kq-pW8"/>
+                <constraint firstItem="p6y-R8-7kZ" firstAttribute="leading" secondItem="A5c-hA-Kj7" secondAttribute="leading" constant="100" id="0om-oU-OqD"/>
+                <constraint firstItem="eOq-lw-v6s" firstAttribute="leading" secondItem="rwV-Bh-Sz9" secondAttribute="leading" constant="100" id="2uP-17-6Rd"/>
+                <constraint firstItem="p6y-R8-7kZ" firstAttribute="top" secondItem="eOq-lw-v6s" secondAttribute="bottom" constant="20" id="MyR-kq-pW8"/>
                 <constraint firstItem="p6y-R8-7kZ" firstAttribute="centerX" secondItem="rwV-Bh-Sz9" secondAttribute="centerX" id="ms3-rT-Fqx"/>
-                <constraint firstAttribute="trailing" secondItem="eOq-lw-v6s" secondAttribute="trailing" constant="125" id="rY7-f8-WMR"/>
+                <constraint firstItem="A5c-hA-Kj7" firstAttribute="trailing" secondItem="p6y-R8-7kZ" secondAttribute="trailing" constant="100" id="nis-hJ-TQX"/>
+                <constraint firstAttribute="trailing" secondItem="eOq-lw-v6s" secondAttribute="trailing" constant="100" id="rY7-f8-WMR"/>
                 <constraint firstItem="eOq-lw-v6s" firstAttribute="top" secondItem="A5c-hA-Kj7" secondAttribute="top" priority="999" constant="389" id="sf1-Xc-nMR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="A5c-hA-Kj7"/>

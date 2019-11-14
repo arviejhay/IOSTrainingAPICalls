@@ -8,7 +8,7 @@
 
 #import "AppSettings.h"
 
-const NSString *userNameKey = @"username";
+NSString * const userNameKey = @"username";
 
 @implementation AppSettings
 

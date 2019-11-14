@@ -10,6 +10,8 @@
 
 @interface HomeViewController ()
 
+- (void)insertCategoryToCollection:(id)currentItem;
+
 @end
 
 @implementation HomeViewController
@@ -18,61 +20,93 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _homeView = (HomeView *)[[[NSBundle mainBundle] loadNibNamed:@"HomeView" owner:self options:nil] objectAtIndex:0];
+    [self initializeView];
+    
+    _categories = [[NSMutableArray alloc] init];
+    _hvc = self;
+    
+    [self initializeAPIResources];
+
+}
+
+- (void)initializeView {
+    NSString *viewName = @"HomeView";
+    
+    _homeView = (HomeView *)[[[NSBundle mainBundle] loadNibNamed:viewName owner:self options:nil] objectAtIndex:0];
     _homeView.frame =  self.view.frame;
     
     _homeView.homeTableView.delegate = self;
     _homeView.homeTableView.dataSource = self;
     
-    [_homeView.homeTableView registerNib:[UINib nibWithNibName:[[HomeTableViewCell alloc]cellName] bundle:nil] forCellReuseIdentifier:[[HomeTableViewCell alloc] reuseIdentifier]];
+    NSString *cellName = [[HomeTableViewCell alloc] cellName];
+    NSString *reuseIdentifier = [[HomeTableViewCell alloc] reuseIdentifier];
+    
+    [_homeView.homeTableView registerNib:[UINib nibWithNibName:cellName bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+    [_homeView.categoriesLoader startAnimating];
+    [_homeView.homeTableView setHidden:true];
     
     [self.view addSubview:_homeView];
-    [self.homeView.categoriesLoader startAnimating];
-    [self.homeView.homeTableView setHidden:true];
-    [self getCategories];
-    
 }
 
-- (void)getCategories {
-    NSString *categoriesUrl = @"https://developers.zomato.com/api/v2.1/categories";
+- (void)initializeAPIResources {
+    NSString *apiLink = @"https://developers.zomato.com/api/v2.1/categories";
+    
     NSString *apiKey = @"6594c38d89f197460bbbdf9b03123d85";
     
-    _categories = [[NSMutableArray alloc] init];
+    HomeViewController *hvcInner = _hvc;
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:apiKey forHTTPHeaderField:@"user-key"];
-    [manager GET:categoriesUrl parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    _api = [[APIRetrieval alloc] initWithAPILink:apiLink andAPIKey:apiKey];
+    
+    _api.successBlock = ^(NSURLSessionTask * _Nonnull task, id _Nullable responseObject) {
         if (task.state == NSURLSessionTaskStateCompleted)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.homeView.categoriesLoader stopAnimating];
-                [self.homeView.homeTableView setHidden:false];
-                [self.homeView.homeTableView reloadData];
+                [hvcInner.homeView.categoriesLoader stopAnimating];
+                [hvcInner.homeView.homeTableView setHidden:false];
+                [hvcInner.homeView.homeTableView reloadData];
             });
         }
         NSDictionary *responseDictionary = responseObject;
-        NSArray *responseArray = responseDictionary[@"categories"];
-        for (id item in responseArray)
+        NSArray *responseCategoryOuter = responseDictionary[@"categories"];
+        for (id category in responseCategoryOuter)
         {
-            NSDictionary *responseCategoryEnvelop = item[@"categories"];
-            
-            Category *category = [[Category alloc] categoryID:[responseCategoryEnvelop[@"id"] intValue] name:responseCategoryEnvelop[@"name"]];
-            [self.categories addObject:category];
+            [hvcInner insertCategoryToCollection:category];
         }
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@",error);
-    }];
+    };
     
+    _api.failureBlock = ^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@",error);
+    };
+    
+    [self retrieveDataWithSuccess:_api.successBlock withFailure:_api.failureBlock withParameters:nil];
+}
+
+- (void)insertCategoryToCollection:(id)currentItem {
+    NSDictionary *responseCategory = currentItem[@"categories"];
+    
+    NSString *categoryID = responseCategory[@"id"];
+    NSString *categoryName = responseCategory[@"name"];
+    
+    Category *category = [[Category alloc] categoryID:[categoryID intValue] name:categoryName];
+    
+    [_hvc.categories addObject:category];
+}
+
+- (void)retrieveDataWithSuccess:(success)successBlock withFailure:(failure)failureBlock withParameters:(NSDictionary *)dictionary {
+    
+    [_api initAFNetworkingObject];
+    [_api.sessionManager GET:_api.apiLink parameters:dictionary progress:nil success:successBlock failure:failureBlock];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.categories count];
+    NSUInteger categoriesCount = [_categories count];
+    return categoriesCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[[HomeTableViewCell alloc]reuseIdentifier]];
+    NSString *reuseIdentifier = [[HomeTableViewCell alloc] reuseIdentifier];
+    
+    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     Category *category = _categories[indexPath.row];
     cell.nameLabel.text = category.categoryName;
     return cell;
@@ -94,14 +128,5 @@
         rvc.selectedCategoryTitle.title = splitCategory[1];
     }
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

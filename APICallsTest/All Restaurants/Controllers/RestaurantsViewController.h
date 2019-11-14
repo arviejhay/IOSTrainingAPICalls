@@ -14,12 +14,15 @@
 #import "../Views/RestaurantsView.h"
 #import "../Models/Restaurant.h"
 #import "../Views/Cells/RestaurantCollectionViewCell.h"
+
 #import "../../Selected Restaurant/Controllers/SelectedRestaurantViewController.h"
 #import "../../Restaurants Map/Controllers/RestaurantsMapViewController.h"
+#import "../../Class Utilities/Delegates/APIRetrieval.h"
+#import "../../Class Utilities/Delegates/Initializer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RestaurantsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CLLocationManagerDelegate>
+@interface RestaurantsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CLLocationManagerDelegate,APIRetrievalDelegate,InitializerDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationItem *selectedCategoryTitle;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *restaurantsMap;
 
@@ -32,10 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(weak, nonatomic) RestaurantsView *restaurantView;
 
-@property(copy, readwrite) NSString *latitude;
-@property(copy, readwrite) NSString *longtitude;
+@property(copy, readwrite) APIRetrieval *api;
 
-- (void)getAllRestaurantsBasedCategoryWithLatitude:(NSString *)latitude andLongtitude:(NSString *)lon;
 - (void)setHiddenForBarButton:(BOOL)enabled;
 - (void)startLocationService;
 @end

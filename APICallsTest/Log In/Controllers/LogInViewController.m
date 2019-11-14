@@ -10,6 +10,8 @@
 
 @interface LogInViewController ()
 
+- (void)showAlertWith:(NSString *)message;
+
 @end
 
 @implementation LogInViewController
@@ -26,11 +28,41 @@
 }
 
 - (void)didTapLogin {
-    [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
-        //FIRUser *user = authResult.user;
+    NSCharacterSet *charSet = [NSCharacterSet whitespaceCharacterSet];
+    NSString *trimmedString = [self.loginView.userNameTextField.text stringByTrimmingCharactersInSet:charSet];
+    
+    if ([trimmedString length] == 0)
+    {
+        [self showAlertWith:@"Username must not be blank!"];
+    }
+    else {
         [[AppSettings shared] setUsername:self.loginView.userNameTextField.text];
-        [self performSegueWithIdentifier:@"ChannelSegue" sender:self];
+        [[FIRAuth auth] signInAnonymouslyWithCompletion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+            if (error != nil)
+            {
+                [self showAlertWith:@"Error Signing In. Please try again."];
+                return;
+            }
+            [self performSegueWithIdentifier:@"ChannelSegue" sender:[authResult user]];
+        }];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ChannelSegue"]) {
+        UINavigationController *navVC = [segue destinationViewController];
+        ChannelViewController *cvc = navVC.viewControllers[0];
+        FIRUser *user = sender;
+        cvc.currentUser = user;
+    }
+}
+
+- (void)showAlertWith:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Message" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
     }];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:true completion:nil];
 }
 
 

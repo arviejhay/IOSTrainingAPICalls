@@ -21,16 +21,16 @@
     {
         return nil;
     }
-    JSQMessage *message = [[JSQMessage alloc] initWithSenderId:ID senderDisplayName:name date:date text:text];
+    Message *message = [[Message alloc] initWithSenderId:ID senderDisplayName:name date:date text:text];
     return message;
 }
 
 - (NSDictionary *)representation {
     NSDictionary *data;
-    data = @{ @"senderId": [self senderID],
-              @"senderId": [self senderDisplayName],
-              @"senderId": [self senderDate],
-              @"senderId": [self senderText]
+    data = @{ @"senderId": [self senderId],
+              @"senderName": [self senderDisplayName],
+              @"date": [self date],
+              @"text": [self text]
               };
     return data;
 }

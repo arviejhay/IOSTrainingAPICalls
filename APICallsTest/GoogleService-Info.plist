@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>509513005666-o3me6tb7kqvqe27mij6p81fgs6rucje8.apps.googleusercontent.com</string>
+	<string>209178874115-pq589d40q3iqttsn3ab732t8ve7gjdt0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.509513005666-o3me6tb7kqvqe27mij6p81fgs6rucje8</string>
+	<string>com.googleusercontent.apps.209178874115-pq589d40q3iqttsn3ab732t8ve7gjdt0</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBVArkr5fTlKPl4MWVfiO8job_Yziq-F7c</string>
+	<string>AIzaSyC8zRBzpWvw2CHqcfv8njDPhQKHRDN_w5E</string>
 	<key>GCM_SENDER_ID</key>
-	<string>509513005666</string>
+	<string>209178874115</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>OPS.NotificationTest</string>
+	<string>com.zmjy.ChatTutorial</string>
 	<key>PROJECT_ID</key>
-	<string>iosprojecttesting</string>
+	<string>zmjy-mytutorial</string>
 	<key>STORAGE_BUCKET</key>
-	<string>iosprojecttesting.appspot.com</string>
+	<string>zmjy-mytutorial.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:509513005666:ios:6ae4f633faf6dc31eb2f3b</string>
+	<string>1:209178874115:ios:34323282bb9d8c6570d936</string>
 	<key>DATABASE_URL</key>
-	<string>https://iosprojecttesting.firebaseio.com</string>
+	<string>https://zmjy-mytutorial.firebaseio.com</string>
 </dict>
 </plist>

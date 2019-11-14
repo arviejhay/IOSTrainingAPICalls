@@ -10,4 +10,12 @@
 
 @implementation RestaurantCollectionViewCell
 
+- (NSString *)cellName {
+    return @"RestaurantCollectionViewCell";
+}
+
+- (NSString *)reuseIdentifier {
+    return @"RestaurantCell";
+}
+
 @end

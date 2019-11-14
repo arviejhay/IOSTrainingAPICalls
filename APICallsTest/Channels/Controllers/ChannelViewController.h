@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ChannelViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *welcomeNavigationTitle;
 @property(weak, nonatomic) ChannelView *channelView;
+@property(weak, nonatomic) FIRUser *currentUser;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,19 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FirebaseAuth/FirebaseAuth.h>
+#import <FirebaseFirestore/FirebaseFirestore.h>
 #import <JSQMessagesViewController/JSQMessagesViewController.h>
+#import <JSQMessagesViewController/JSQMessagesBubbleImageFactory.h>
+#import <JSQMessagesViewController/JSQMessagesAvatarImageFactory.h>
+
+#import "../Models/Message.h"
+#import "../Views/MessageChatView.h"
 
 #import "../../Channels/Models/Channel.h"
-#import "../Views/MessageChatView.h"
+#import "../../Class Utilities/Classes/AppSettings.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MessageChatViewController : JSQMessagesViewController<JSQMessagesInputToolbarDelegate>
+@interface MessageChatViewController : JSQMessagesViewController<JSQMessagesInputToolbarDelegate,JSQMessagesCollectionViewCellDelegate, JSQMessagesCollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UINavigationItem *channelName;
 @property Channel *channel;
 @property (weak, nonatomic) MessageChatView *chatView;
-- (instancetype)initWithChannel:(Channel *)channel;
-- (void)setup;
+@property (weak, nonatomic) FIRUser *user;
+- (void)setupFirebase;
+- (void)setupInterface;
 - (void)handleThreadListener:(FIRDocumentChange *)changes;
 @end
 
