@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ehh-Db-zax"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Welcome" id="4ey-AG-Qst">
+                    <navigationItem key="navigationItem" title="Welcome" largeTitleDisplayMode="always" id="4ey-AG-Qst">
                         <barButtonItem key="leftBarButtonItem" title="Log out" id="HfK-u2-OeI">
                             <connections>
                                 <action selector="logOutButton:" destination="omB-iK-665" id="U1m-N7-WeA"/>
@@ -65,9 +65,17 @@
         <scene sceneID="96y-2d-OfV">
             <objects>
                 <navigationController id="81S-LS-GeK" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QKl-5H-caJ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="QKl-5H-caJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="omB-iK-665" kind="relationship" relationship="rootViewController" id="fgR-It-Dwi"/>
