@@ -10,26 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Categories" id="zL8-cr-xKq"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="kkF-ck-2Cd" kind="show" identifier="CategorySegue" id="xbX-so-bCe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="623" y="21"/>
-        </scene>
         <!--RestaurantsMap-->
         <scene sceneID="Cvm-so-DCu">
             <objects>
@@ -49,6 +29,11 @@
                         <viewLayoutGuide key="safeArea" id="Gwu-LN-7eb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="2Ar-x5-RGY">
+                        <barButtonItem key="leftBarButtonItem" title="Back To Categories" id="5gS-8C-DuZ">
+                            <connections>
+                                <action selector="backToCategories:" destination="kkF-ck-2Cd" id="PHY-zA-SLF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Restaurants Map" id="J7e-tw-h7W">
                             <connections>
                                 <action selector="goToRestaurantsMap:" destination="kkF-ck-2Cd" id="Czc-9f-kga"/>
@@ -85,25 +70,21 @@
             </objects>
             <point key="canvasLocation" x="2428" y="21"/>
         </scene>
-        <!--Categories-->
+        <!--Navigation Controller-->
         <scene sceneID="jgF-89-fGU">
             <objects>
                 <navigationController id="V2j-Pv-qCq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" id="hBa-CW-ey3">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
-                    </tabBarItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5dX-mc-qHs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GzH-sF-DIE"/>
+                        <segue destination="kkF-ck-2Cd" kind="relationship" relationship="rootViewController" id="hvY-Ne-I6n"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ges-bi-dCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-275" y="21"/>
+            <point key="canvasLocation" x="680" y="21"/>
         </scene>
     </scenes>
 </document>

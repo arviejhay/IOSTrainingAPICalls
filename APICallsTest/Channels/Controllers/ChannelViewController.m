@@ -9,6 +9,7 @@
 #import "ChannelViewController.h"
 
 @interface ChannelViewController ()
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *didTapAddChannel;
 
 @property FIRFirestore *db;
@@ -32,6 +33,9 @@
 - (void)updateChannelToTable:(Channel *)channel;
 - (void)removeChannelToTable:(Channel *)channel;
 
+- (BOOL)isChannelExist:(Channel *)channel;
+- (int)getIndexGivenByChannels:(NSMutableArray *)channels andGivenChannel:(Channel *)givenChannel;
+
 @end
 
 @implementation ChannelViewController
@@ -41,15 +45,8 @@
     
     _isFullyInitialized = false;
     
-    _channelView = (ChannelView *)[[[NSBundle mainBundle] loadNibNamed:@"ChannelView" owner:self options:nil] objectAtIndex:0];
+    [self initializeView];
     
-    [_channelView.channelsTableView registerNib:[UINib nibWithNibName:[[ChannelTableViewCell alloc]cellName] bundle:nil] forCellReuseIdentifier:[[ChannelTableViewCell alloc] reuseIdentifier]];
-    
-    _channelView.frame = self.view.frame;
-    _channelView.channelsTableView.delegate = self;
-    _channelView.channelsTableView.dataSource = self;
-    
-    [self.view addSubview:_channelView];
     _welcomeNavigationTitle.title = [NSString stringWithFormat:@"Welcome, %@",[[AppSettings shared] getUsername]];
     
     _db = [FIRFirestore firestore];
@@ -72,73 +69,42 @@
             [vc handleDocumentChange:change];
         }
     }];
+
+    // Do any additional setup after loading the view.
+}
+
+- (void)initializeView {
+    NSString *cellName = [[ChannelTableViewCell alloc] cellName];
+    NSString *reuseIdentifier = [[ChannelTableViewCell alloc] reuseIdentifier];
     
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    _channelView = (ChannelView *)[[[NSBundle mainBundle] loadNibNamed:@"ChannelView" owner:self options:nil] objectAtIndex:0];
+    
+    [_channelView.channelsTableView registerNib:[UINib nibWithNibName:cellName bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+    
+    _channelView.frame = self.view.bounds;
+    _channelView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+
+    _channelView.channelsTableView.delegate = self;
+    _channelView.channelsTableView.dataSource = self;
+    
+    [self.view addSubview:_channelView];
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
     _blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     _blurEffectView.frame = self.view.bounds;
     _blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_blurEffectView setOpaque:true];
     [_blurEffectView setAlpha:0];
+    
     [self.view addSubview:_blurEffectView];
-    
-    
-    // Do any additional setup after loading the view.
 }
 
-- (void)addChannelToTable:(Channel *)channel {
-    BOOL isExist = false;
-    if ([_channels count] != 0)
-    {
-        for (int i = 0; i < [_channels count];i++)
-        {
-            Channel *currentChannel = _channels[i];
-            if ([channel.name isEqualToString:currentChannel.name])
-            {
-                isExist = true;
-            }
-        }
-    }
-    if (isExist == true && _isFullyInitialized == true)
-    {
-        [self showAlertWith:@"Name Already Exist! Please try another name"];
-    }
-    else if (isExist == false){
-        [_channels addObject:channel];
-        NSInteger index = [_channels count] - 1;
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-        NSArray *paths = [NSArray arrayWithObjects:indexPath, nil];
-        [self.channelView.channelsTableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-}
-
-- (void)removeChannelToTable:(Channel *)channel {
-    for (int i = 0; i < [_channels count];i++)
-    {
-        Channel *currentChannel = _channels[i];
-        NSString *givenChannelName = channel.name;
-        NSString *currentChannelName = currentChannel.name;
-        if ([givenChannelName isEqualToString:currentChannelName])
-        {
-            [_channels removeObjectAtIndex:i];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-            NSArray *paths = [NSArray arrayWithObjects:indexPath, nil];
-            [self.channelView.channelsTableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-    }
-}
-
-- (void)updateChannelToTable:(Channel *)channel {
-    for (int i = 0; i++; [_channels count])
-    {
-        Channel *currentChannel = _channels[i];
-        if ([channel.name isEqualToString:currentChannel.name])
-        {
-            [_channels removeObjectAtIndex:i];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-            NSArray *paths = [NSArray arrayWithObjects:indexPath, nil];
-            [self.channelView.channelsTableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-    }
+- (void)showAlertWith:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Message" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    }];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:true completion:nil];
 }
 
 - (void)handleDocumentChange:(FIRDocumentChange *)change {
@@ -163,23 +129,76 @@
     }
 }
 
-
-- (void)fadeInAnimation {
-    [UIVisualEffectView animateWithDuration:1.0 animations:^{
-        [self.blurEffectView setAlpha:0];
-        [self.blurEffectView setAlpha:0.5];
-    }];
+- (void)addChannelToTable:(Channel *)channel {
+    BOOL isExist = [self isChannelExist:channel];
+    if (isExist && _isFullyInitialized == true)
+    {
+        [self showAlertWith:@"Name Already Exist! Please try another name"];
+    }
+    else if (isExist == false){
+        [_channels addObject:channel];
+        NSInteger index = [_channels count] - 1;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        NSArray *paths = [NSArray arrayWithObjects:indexPath, nil];
+        [self.channelView.channelsTableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
-- (void)fadeOutAnimation {
-    [UIVisualEffectView animateWithDuration:1.0 animations:^{
-        [self.blurEffectView setAlpha:0.5];
-        [self.blurEffectView setAlpha:0];
-    }];
+- (BOOL)isChannelExist:(Channel *)channel {
+    BOOL isExist = false;
+    if ([_channels count] != 0)
+    {
+        for (int i = 0; i < [_channels count];i++)
+        {
+            Channel *currentChannel = _channels[i];
+            if ([channel.name isEqualToString:currentChannel.name])
+            {
+                isExist = true;
+            }
+        }
+    }
+    return isExist;
 }
 
-- (IBAction)logOutButton:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+- (void)removeChannelToTable:(Channel *)channel {
+    int notFoundConstant = -1;
+    int receivedChannelIndex = [self getIndexGivenByChannels:_channels andGivenChannel:channel];
+    if (receivedChannelIndex != notFoundConstant)
+    {
+        [_channels removeObjectAtIndex:receivedChannelIndex];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:receivedChannelIndex inSection:0];
+        NSArray *paths = [NSArray arrayWithObjects:indexPath, nil];
+        [self.channelView.channelsTableView deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (int)getIndexGivenByChannels:(NSMutableArray *)channels andGivenChannel:(Channel *)givenChannel{
+    NSUInteger maxChannelCount = [channels count];
+    for (int index = 0; index < maxChannelCount;index++)
+    {
+        Channel *currentChannel = channels[index];
+        NSString *givenChannelName = givenChannel.name;
+        NSString *currentChannelName = currentChannel.name;
+        if ([givenChannelName isEqualToString:currentChannelName])
+        {
+            return index;
+        }
+    }
+    return -1;
+}
+
+- (void)updateChannelToTable:(Channel *)channel {
+    for (int i = 0; i++; [_channels count])
+    {
+        Channel *currentChannel = _channels[i];
+        if ([channel.name isEqualToString:currentChannel.name])
+        {
+            [_channels removeObjectAtIndex:i];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            NSArray *paths = [NSArray arrayWithObjects:indexPath, nil];
+            [self.channelView.channelsTableView reloadRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
 }
 
 - (IBAction)didTapAddChannel:(id)sender {
@@ -220,12 +239,18 @@
     }];
 }
 
-- (void)showAlertWith:(NSString *)message {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Message" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+- (void)fadeInAnimation {
+    [UIVisualEffectView animateWithDuration:1.0 animations:^{
+        [self.blurEffectView setAlpha:0];
+        [self.blurEffectView setAlpha:1];
     }];
-    [alert addAction:okAction];
-    [self presentViewController:alert animated:true completion:nil];
+}
+
+- (void)fadeOutAnimation {
+    [UIVisualEffectView animateWithDuration:1.0 animations:^{
+        [self.blurEffectView setAlpha:1];
+        [self.blurEffectView setAlpha:0];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -243,12 +268,25 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Channel *channel = _channels[indexPath.row];
+        [[_channelRef documentWithPath:channel.channelID] deleteDocument];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Channel *channel = _channels[indexPath.row];
     if (channel == nil)
     {
         return;
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
     [self performSegueWithIdentifier:@"ChatSegue" sender:channel];
 }
 
@@ -261,16 +299,10 @@
     }
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        Channel *channel = _channels[indexPath.row];
-        [[_channelRef documentWithPath:channel.channelID] deleteDocument];
-    }
+- (IBAction)logOutButton:(id)sender {
+    [[FIRAuth auth] signOut:nil];
+    [AppSettings.shared setUsername:@""];
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 /*
 #pragma mark - Navigation

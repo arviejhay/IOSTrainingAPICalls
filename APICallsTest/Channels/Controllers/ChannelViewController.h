@@ -11,14 +11,16 @@
 
 #import "../Views/ChannelView.h"
 
-#import "../../Class Utilities/Classes/AppSettings.h"
 #import "../Views/Cell/ChannelTableViewCell.h"
 #import "../Models/Channel.h"
+
+#import "../../Class Utilities/Classes/AppSettings.h"
+#import "../../Class Utilities/Delegates/Initializer.h"
 #import "../../Message Chat/Controllers/MessageChatViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChannelViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ChannelViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,InitializerDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationItem *welcomeNavigationTitle;
 @property(weak, nonatomic) ChannelView *channelView;
 @property(weak, nonatomic) FIRUser *currentUser;

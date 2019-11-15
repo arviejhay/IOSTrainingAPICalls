@@ -42,7 +42,6 @@
 		5B88773E2377214B0037D78A /* SelectedRestaurantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B88773D2377214B0037D78A /* SelectedRestaurantView.xib */; };
 		5B94BD76237CE91D00E86DCF /* Initializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B94BD75237CE91D00E86DCF /* Initializer.m */; };
 		5B94BD78237D243600E86DCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B94BD77237D243600E86DCF /* GoogleService-Info.plist */; };
-		5B94BD7B237D416400E86DCF /* Typing.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B94BD7A237D416400E86DCF /* Typing.m */; };
 		5BA117482375157C00508D05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA117472375157C00508D05 /* AppDelegate.m */; };
 		5BA1174E2375157C00508D05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1174C2375157C00508D05 /* Main.storyboard */; };
 		5BA117502375157D00508D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1174F2375157D00508D05 /* Assets.xcassets */; };
@@ -51,6 +50,7 @@
 		5BA117602375157D00508D05 /* APICallsTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1175F2375157D00508D05 /* APICallsTestTests.m */; };
 		5BA1176B2375157D00508D05 /* APICallsTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1176A2375157D00508D05 /* APICallsTestUITests.m */; };
 		5BA98151237C3FD800D92927 /* APIRetrieval.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA98150237C3FD800D92927 /* APIRetrieval.m */; };
+		5BF46068237D85AA0021C948 /* Categories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF46067237D85AA0021C948 /* Categories.storyboard */; };
 		5BF6D86C237B8544007F2A57 /* ChannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6D86B237B8544007F2A57 /* ChannelTableViewCell.m */; };
 		5BF6D86E237B8558007F2A57 /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF6D86D237B8558007F2A57 /* ChannelTableViewCell.xib */; };
 		5BF6D871237B9C5D007F2A57 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6D870237B9C5D007F2A57 /* Channel.m */; };
@@ -140,8 +140,6 @@
 		5B94BD74237CE91D00E86DCF /* Initializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Initializer.h; sourceTree = "<group>"; };
 		5B94BD75237CE91D00E86DCF /* Initializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Initializer.m; sourceTree = "<group>"; };
 		5B94BD77237D243600E86DCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5B94BD79237D416400E86DCF /* Typing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Typing.h; sourceTree = "<group>"; };
-		5B94BD7A237D416400E86DCF /* Typing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Typing.m; sourceTree = "<group>"; };
 		5BA117432375157C00508D05 /* APICallsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APICallsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA117462375157C00508D05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5BA117472375157C00508D05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -158,6 +156,7 @@
 		5BA1176C2375157D00508D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BA9814F237C3FD800D92927 /* APIRetrieval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIRetrieval.h; sourceTree = "<group>"; };
 		5BA98150237C3FD800D92927 /* APIRetrieval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIRetrieval.m; sourceTree = "<group>"; };
+		5BF46067237D85AA0021C948 /* Categories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Categories.storyboard; sourceTree = "<group>"; };
 		5BF6D86A237B8544007F2A57 /* ChannelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelTableViewCell.h; sourceTree = "<group>"; };
 		5BF6D86B237B8544007F2A57 /* ChannelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelTableViewCell.m; sourceTree = "<group>"; };
 		5BF6D86D237B8558007F2A57 /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
@@ -411,8 +410,6 @@
 			children = (
 				5BF6D873237BE388007F2A57 /* Message.h */,
 				5BF6D874237BE388007F2A57 /* Message.m */,
-				5B94BD79237D416400E86DCF /* Typing.h */,
-				5B94BD7A237D416400E86DCF /* Typing.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -584,6 +581,7 @@
 				5B62104A237A787700509E2D /* BeforeMain.storyboard */,
 				5B62104E237A79E200509E2D /* Messenger.storyboard */,
 				5B621082237AA6A900509E2D /* HomeLoggedIn.storyboard */,
+				5BF46067237D85AA0021C948 /* Categories.storyboard */,
 			);
 			path = APICallsTest;
 			sourceTree = "<group>";
@@ -736,6 +734,7 @@
 				5B621065237A803F00509E2D /* LogInView.xib in Resources */,
 				5BA117532375157D00508D05 /* LaunchScreen.storyboard in Resources */,
 				5B3469EA2375578D00EC4526 /* RestaurantsView.xib in Resources */,
+				5BF46068237D85AA0021C948 /* Categories.storyboard in Resources */,
 				5B3469D0237518B300EC4526 /* HomeView.xib in Resources */,
 				5BA117502375157D00508D05 /* Assets.xcassets in Resources */,
 				5B3469F22375580300EC4526 /* RestaurantCollectionViewCell.xib in Resources */,
@@ -919,7 +918,6 @@
 				5B3469E1237555C700EC4526 /* Restaurant.m in Sources */,
 				5BA98151237C3FD800D92927 /* APIRetrieval.m in Sources */,
 				5B887736237720FE0037D78A /* SelectedRestaurant.m in Sources */,
-				5B94BD7B237D416400E86DCF /* Typing.m in Sources */,
 				5BF6D875237BE388007F2A57 /* Message.m in Sources */,
 				5B621060237A7F9500509E2D /* LogInViewController.m in Sources */,
 				5BF6D871237B9C5D007F2A57 /* Channel.m in Sources */,

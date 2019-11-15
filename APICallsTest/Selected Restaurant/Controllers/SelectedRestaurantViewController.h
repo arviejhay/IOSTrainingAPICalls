@@ -13,14 +13,17 @@
 #import "../Views/SelectedRestaurantView.h"
 #import "../Models/SelectedRestaurant.h"
 
+#import "../../Class Utilities/Delegates/APIRetrieval.h"
+#import "../../Class Utilities/Delegates/Initializer.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SelectedRestaurantViewController : UIViewController
+@interface SelectedRestaurantViewController : UIViewController<APIRetrievalDelegate,InitializerDelegate>
 @property(weak, nonatomic) SelectedRestaurantView *selectedRestaurantView;
 @property(copy, readwrite) NSDictionary *selectedRestaurantInfo;
 @property(readwrite) SelectedRestaurant *selectedRestaurant;
+@property(copy,readwrite) APIRetrieval *api;
 @property (weak, nonatomic) IBOutlet UINavigationItem *selectedNavigationTitle;
-- (void)getRestaurantByID;
 @end
 
 NS_ASSUME_NONNULL_END

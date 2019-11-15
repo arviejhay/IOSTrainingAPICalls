@@ -11,7 +11,6 @@
 @interface MessageChatViewController ()
 @property FIRFirestore *db;
 @property FIRCollectionReference *threadRef;
-@property FIRCollectionReference *typingRef;
 @property NSMutableArray<Message *> *messages;
 
 - (void)showAlertWith:(NSString *)message;
@@ -65,20 +64,6 @@
             [mcvc handleThreadListener: change];
         }
     }];
-    
-    //NSString *typingURL = @"channel/%@/Typing",_channel.channelID);
-    /*[_typingRef addSnapshotListener:^(FIRQuerySnapshot * _Nullable snapshot, NSError * _Nullable error) {
-        
-        if (error != nil)
-        {
-            [mcvc showAlertWith:error.localizedDescription];
-        }
-        
-        for (FIRDocumentChange *change in [snapshot documentChanges])
-        {
-            [mcvc handleThreadListener: change];
-        }
-    }];*/
 }
 
 - (void)handleThreadListener:(FIRDocumentChange *)change {
@@ -172,8 +157,18 @@
 
 - (void)didPressSendButton:(UIButton *)button withMessageText:(NSString *)text senderId:(NSString *)senderId senderDisplayName:(NSString *)senderDisplayName date:(NSDate *)date {
     Message *msg = [Message messageWithSenderId:senderId displayName:senderDisplayName text:text];
-    [self sendMessage:msg];
-    self.inputToolbar.contentView.textView.text = @"";
+    if ([self isStringEmptyOrWhitespaces:msg.text] == NO)
+    {
+        [self sendMessage:msg];
+        self.inputToolbar.contentView.textView.text = @"";
+    }
+}
+
+- (BOOL)isStringEmptyOrWhitespaces:(NSString *)givenString {
+    NSCharacterSet *charSet = [NSCharacterSet whitespaceCharacterSet];
+    NSString *trimmedString = [givenString stringByTrimmingCharactersInSet:charSet];
+    
+    return [trimmedString length] == 0;
 }
 
 - (void)didPressAccessoryButton:(UIButton *)sender {
@@ -192,15 +187,6 @@
 
 - (BOOL)automaticallyScrollsToMostRecentMessage {
     return true;
-}
-
-- (void)textViewDidChange:(UITextView *)textView {
-    self.showTypingIndicator = true;
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
-    self.showTypingIndicator = false;
 }
 /*
 #pragma mark - Navigation

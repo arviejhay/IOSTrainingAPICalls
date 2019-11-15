@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Selected Restaurant/Controllers/SelectedRestaurantViewController.m"
-            timestampString = "595069348.844259"
+            timestampString = "595479199.841538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "-loadSelectedRestaurantInfo"
             landmarkType = "7">
             <Locations>
@@ -73,13 +73,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Selected Restaurant/Controllers/SelectedRestaurantViewController.m"
-            timestampString = "595069348.8443331"
+            timestampString = "595479199.841592"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-getRestaurantByID"
-            landmarkType = "7">
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "@implementation SelectedRestaurantViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -104,28 +104,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "APICallsTest/Restaurants Map/Controllers/RestaurantsMapViewController.m"
-            timestampString = "595303612.884663"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "APICallsTest/All Restaurants/Controllers/RestaurantsViewController.m"
-            timestampString = "595414997.872395"
+            timestampString = "595479199.8416719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "7">
          </BreakpointContent>
@@ -137,7 +121,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Log In/Views/LogInView.m"
-            timestampString = "595392651.507177"
+            timestampString = "595479199.841728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
@@ -153,11 +137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Log In/Controllers/LogInViewController.m"
-            timestampString = "595414997.872476"
+            timestampString = "595479199.841765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "-didTapLogin"
             landmarkType = "7">
             <Locations>
@@ -217,11 +201,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Channels/Controllers/ChannelViewController.m"
-            timestampString = "595414997.8725359"
+            timestampString = "595479199.841835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -233,27 +217,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Channels/Controllers/ChannelViewController.m"
-            timestampString = "595414997.872579"
+            timestampString = "595479199.841879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "APICallsTest/Channels/Controllers/ChannelViewController.m"
-            timestampString = "595414997.872617"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -265,11 +233,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Channels/Controllers/ChannelViewController.m"
-            timestampString = "595414997.872653"
+            timestampString = "595479199.8419189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "-removeChannelToTable:"
             landmarkType = "7">
          </BreakpointContent>
@@ -281,11 +249,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Channels/Controllers/ChannelViewController.m"
-            timestampString = "595414997.872689"
+            timestampString = "595479199.841958"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -297,11 +265,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Channels/Controllers/ChannelViewController.m"
-            timestampString = "595414997.872726"
+            timestampString = "595479199.841996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,11 +281,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Log In/Controllers/LogInViewController.m"
-            timestampString = "595414997.872761"
+            timestampString = "595479199.842034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "-didTapLogin"
             landmarkType = "7">
          </BreakpointContent>
@@ -329,11 +297,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Log In/Controllers/LogInViewController.m"
-            timestampString = "595414997.872798"
+            timestampString = "595479199.8420759"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-didTapLogin"
             landmarkType = "7">
          </BreakpointContent>
@@ -345,27 +313,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Log In/Controllers/LogInViewController.m"
-            timestampString = "595414997.872834"
+            timestampString = "595479199.842118"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-didTapLogin"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "APICallsTest/Log In/Controllers/LogInViewController.m"
-            timestampString = "595414997.872871"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "7">
          </BreakpointContent>
@@ -377,7 +329,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Message Chat/Controllers/MessageChatViewController.m"
-            timestampString = "595414997.87291"
+            timestampString = "595479199.842163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -393,44 +345,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/Message Chat/Controllers/MessageChatViewController.m"
-            timestampString = "595414997.873221"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-setupFirebase"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "APICallsTest/Message Chat/Controllers/MessageChatViewController.m"
-            timestampString = "595414997.873433"
+            timestampString = "595479199.84244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
             endingLineNumber = "142"
-            landmarkName = "-collectionView:messageBubbleImageDataForItemAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "APICallsTest/Message Chat/Controllers/MessageChatViewController.m"
-            timestampString = "595414997.8736579"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "-sendMessage:"
+            landmarkName = "-collectionView:attributedTextForCellBottomLabelAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -441,11 +361,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/All Restaurants/Controllers/RestaurantsViewController.m"
-            timestampString = "595414997.873868"
+            timestampString = "595479199.842647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-initializeAPIResourcesWithLatitude:andWithLongitude:"
             landmarkType = "7">
          </BreakpointContent>
@@ -457,11 +377,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/All Restaurants/Controllers/RestaurantsViewController.m"
-            timestampString = "595414997.873915"
+            timestampString = "595479199.8427"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-initializeAPIResourcesWithLatitude:andWithLongitude:"
             landmarkType = "7">
          </BreakpointContent>
@@ -473,11 +393,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/All Restaurants/Controllers/RestaurantsViewController.m"
-            timestampString = "595414997.873958"
+            timestampString = "595479199.842746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "-insertRestaurantPrimaryInfoToCollection:"
             landmarkType = "7">
          </BreakpointContent>
@@ -489,12 +409,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "APICallsTest/All Restaurants/Controllers/RestaurantsViewController.m"
-            timestampString = "595414997.874"
+            timestampString = "595479199.8427939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-insertRestaurantLocationInfoToCollection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "APICallsTest/All Restaurants/Controllers/RestaurantsViewController.m"
+            timestampString = "595479199.84284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "APICallsTest/All Restaurants/Controllers/RestaurantsViewController.m"
+            timestampString = "595479199.8428839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "APICallsTest/Home/Controllers/HomeViewController.m"
+            timestampString = "595479199.84293"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-startLocationServices"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "APICallsTest/Home/Controllers/HomeViewController.m"
+            timestampString = "595479199.842973"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "-locationManager:didUpdateLocations:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

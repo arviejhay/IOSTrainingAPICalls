@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LogInView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *didTapLogin;
 
-@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
 @property (weak, nonatomic) id<LogInViewDelegate> delegate;
 
 @end

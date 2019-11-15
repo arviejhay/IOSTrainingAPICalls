@@ -14,10 +14,11 @@
 #import "../../Channels/Controllers/ChannelViewController.h"
 
 #import "../../Class Utilities/Classes/AppSettings.h"
+#import "../../Class Utilities/Delegates/Initializer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LogInViewController : UIViewController<LogInViewDelegate>
+@interface LogInViewController : UIViewController<LogInViewDelegate,InitializerDelegate>
 @property(weak, nonatomic) LogInView *loginView;
 @end
 

@@ -13,9 +13,11 @@
 
 #import "../Views/RestaurantMapView.h"
 
+#import "../../Class Utilities/Delegates/Initializer.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RestaurantsMapViewController : UIViewController<CLLocationManagerDelegate,GMSMapViewDelegate>
+@interface RestaurantsMapViewController : UIViewController<CLLocationManagerDelegate,GMSMapViewDelegate,InitializerDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) RestaurantMapView *restaurantMap;
 @property (copy, readwrite) NSMutableArray *listOfRestaurantsCoordinates;

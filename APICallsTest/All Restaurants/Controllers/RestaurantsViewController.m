@@ -12,6 +12,9 @@
 
 - (void)insertRestaurantPrimaryInfoToCollection:(id)currentItem;
 - (void)insertRestaurantLocationInfoToCollection:(id)currentItem;
+- (void)initializeSDActivityLoaderWithImageURL:(NSURL *)imageURL andRestaurantCell:(RestaurantCollectionViewCell *)cell;
+
+- (void)showAlertWith:(NSString *)message;
 
 @end
 
@@ -25,7 +28,7 @@
    _restaurants = [[NSMutableArray alloc] init];
    _locationsInfoRestaurants = [[NSMutableArray alloc] init];
    
-   [self startLocationService];
+   [self initializeAPIResourcesWithLatitude:_latitude andWithLongitude:_longitude];
     // Do any additional setup after loading the view.
 }
 
@@ -52,27 +55,9 @@
    [self.view addSubview:_restaurantView];
 }
 
-- (void)startLocationService {
-   if (_locationManager == nil) {
-      _locationManager = [[CLLocationManager alloc]init];
-      _locationManager.delegate = self;
-      _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-      [_locationManager startUpdatingLocation];
-      [_locationManager requestLocation];
-   }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-   NSString *msg = [NSString stringWithFormat:@"There was an error retrieving your location/%@",error.localizedDescription];
-   NSLog(@"Error: %@",msg);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-   CLLocation *crnLoc = [locations lastObject];
-   NSString *latitude = [[NSNumber numberWithDouble:crnLoc.coordinate.latitude] stringValue];
-   NSString *longitude = [[NSNumber numberWithDouble:crnLoc.coordinate.longitude] stringValue];
-   [self initializeAPIResourcesWithLatitude:latitude andWithLongitude:longitude];
-   [_locationManager stopUpdatingLocation];
+- (void)setHiddenForBarButton:(BOOL)enabled {
+   [self.restaurantsMap setEnabled:!enabled];
+   [self.restaurantsMap setTintColor: enabled ? [UIColor clearColor] : nil];
 }
 
 - (void)initializeAPIResourcesWithLatitude:(NSString *)latitude andWithLongitude:(NSString *)longitude {
@@ -100,6 +85,7 @@
                   if ([responseRestaurants count] == 0)
                   {
                      [rvc.restaurantView.noResultMessage setHidden:false];
+                     [rvc.restaurantView.restaurantsLoader stopAnimating];
                   }
                   else {
                      [rvc setHiddenForBarButton:false];
@@ -119,6 +105,7 @@
    
    _api.failureBlock = ^(NSURLSessionTask *operation, NSError *error) {
       NSLog(@"Error: %@",error);
+      [rvc showAlertWith:@"Getting Restaurants Data Failed, Please check your internet connection"];
    };
    
    [self retrieveDataWithSuccess:_api.successBlock withFailure:_api.failureBlock withParameters:parameters];
@@ -172,23 +159,8 @@
    [_api.sessionManager GET:_api.apiLink parameters:dictionary progress:nil success:successBlock failure:failureBlock];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-   [self.restaurantView.noResultMessage setHidden:true];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-   [super viewDidDisappear:animated];
-   [self.restaurantView.noResultMessage setHidden:false];
-}
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
    return [_restaurants count];
-}
-
-- (IBAction)goToRestaurantsMap:(id)sender {
-   
-    [self performSegueWithIdentifier:@"MapSegue" sender:self.locationsInfoRestaurants];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -222,36 +194,67 @@
     RestaurantCollectionViewCell *cell = [_restaurantView.restaurantsCollectionView dequeueReusableCellWithReuseIdentifier:@"RestaurantCell" forIndexPath:indexPath];
     
     Restaurant *restaurant = _restaurants[indexPath.item];
+    [self initializeSDActivityLoaderWithImageURL:restaurant.imageURL andRestaurantCell:cell];
+    cell.restaurantNameLabel.text = restaurant.restaurantName;
+    cell.restaurantTimings.text = restaurant.restaurantTiming;
+    return cell;
+}
+
+- (void)initializeSDActivityLoaderWithImageURL:(NSURL *)imageURL andRestaurantCell:(RestaurantCollectionViewCell *)cell{
    __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
    activityIndicator.center = cell.restaurantImageView.center;
    activityIndicator.hidesWhenStopped = true;
-   [cell.restaurantImageView sd_setImageWithURL:restaurant.imageURL placeholderImage:[UIImage imageNamed:@"placeholder.png"] completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, NSURL * imageURL) {
+   [cell.restaurantImageView sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"placeholder.png"] completed:^(UIImage * image, NSError * error, SDImageCacheType cacheType, NSURL * imageURL) {
       dispatch_async(dispatch_get_main_queue(), ^{
          [activityIndicator stopAnimating];
          [activityIndicator removeFromSuperview];
       });
    }];
-   [cell.restaurantImageView addSubview:activityIndicator];
    [activityIndicator startAnimating];
-    cell.restaurantNameLabel.text = restaurant.restaurantName;
-    cell.restaurantTimings.text = restaurant.restaurantTiming;
-    return cell;
+   [cell.restaurantImageView addSubview:activityIndicator];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
-    
-    CGFloat computedHeight = screenSize.height / 3;
-    CGFloat computedWidth = screenSize.width / 3;
-    return CGSizeMake(computedWidth, computedHeight);
+   
+    int numberOfItemsRendered = 3;
+   
+    CGFloat preferredHeight = 251;
+    CGFloat computedWidth = screenSize.width / numberOfItemsRendered;
+   
+   return CGSizeMake(computedWidth, preferredHeight);
 }
 
-- (void)setHiddenForBarButton:(BOOL)enabled {
-   [self.restaurantsMap setEnabled:!enabled];
-   [self.restaurantsMap setTintColor: enabled ? [UIColor clearColor] : nil];
+- (IBAction)backToCategories:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
+
+- (IBAction)goToRestaurantsMap:(id)sender {
+   
+   [self performSegueWithIdentifier:@"MapSegue" sender:self.locationsInfoRestaurants];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+   [self.restaurantView.noResultMessage setHidden:true];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+   [super viewDidDisappear:animated];
+   [self.restaurantView.noResultMessage setHidden:false];
+}
+
+- (void)showAlertWith:(NSString *)message {
+   UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Message" message:message preferredStyle:UIAlertControllerStyleAlert];
+   UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+   }];
+   [alert addAction:okAction];
+   [self presentViewController:alert animated:true completion:nil];
+}
+
+
 
 /*
 #pragma mark - Navigation

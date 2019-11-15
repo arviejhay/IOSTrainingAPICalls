@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AFNetworking/AFNetworking.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "../Views/HomeView.h"
 #import "../Views/Cells/HomeTableViewCell.h"
@@ -19,12 +20,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,APIRetrievalDelegate,InitializerDelegate>
+@interface HomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate,APIRetrievalDelegate,InitializerDelegate>
 
 @property(strong, nonatomic) HomeView *homeView;
 @property(weak, nonatomic) HomeViewController *hvc;
 @property(copy, readwrite) NSMutableArray *categories;
 @property(copy, readwrite) APIRetrieval *api;
+@property(strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 

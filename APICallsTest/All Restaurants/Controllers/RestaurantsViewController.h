@@ -22,14 +22,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RestaurantsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CLLocationManagerDelegate,APIRetrievalDelegate,InitializerDelegate>
+@interface RestaurantsViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,APIRetrievalDelegate,InitializerDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationItem *selectedCategoryTitle;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *restaurantsMap;
 
 @property(copy, readwrite) NSMutableArray *restaurants;
 @property(copy, readwrite) NSMutableArray *locationsInfoRestaurants;
-
-@property(strong, nonatomic) CLLocationManager* locationManager;
 
 @property(copy, readwrite) NSString *selectedCategoryID;
 
@@ -37,8 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(copy, readwrite) APIRetrieval *api;
 
+@property(copy, readwrite) NSString *latitude;
+@property(copy, readwrite) NSString *longitude;
+
 - (void)setHiddenForBarButton:(BOOL)enabled;
-- (void)startLocationService;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,9 @@
 
 @interface RestaurantsMapViewController ()
 
+- (NSString *)createStarRatingStringWithSize:(int)ratingSize;
+- (void)checkLocationAccess;
+
 @end
 
 @implementation RestaurantsMapViewController
@@ -18,57 +21,64 @@
     [super viewDidLoad];
     
     _zoom = 15.0f;
-    
-    _restaurantMap = (RestaurantMapView *)[[[NSBundle mainBundle] loadNibNamed:@"RestaurantMapView" owner:self options:nil] objectAtIndex:0];
-    _restaurantMap.frame = self.view.frame;
-    
-    [self.view addSubview:_restaurantMap];
-    
+    [self initializeView];
     [self startupMap];
     [self startLocationServices];
     // Do any additional setup after loading the view.
 }
 
-- (IBAction)goToBack:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+- (void)initializeView {
+    _restaurantMap = (RestaurantMapView *)[[[NSBundle mainBundle] loadNibNamed:@"RestaurantMapView" owner:self options:nil] objectAtIndex:0];
+    _restaurantMap.frame = self.view.bounds;
+    _restaurantMap.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+    [self.view addSubview:_restaurantMap];
 }
 
 - (void)startupMap {
-    
-    //CLLocation *location = [[CLLocation alloc] initWithLatitude:14.2190864 longitude:121.0449656];
-    //[self centerToLocation:location];
-    
     for (id item in _listOfRestaurantsCoordinates)
     {
         NSDictionary *restaurantInfo = item;
         CLLocationCoordinate2D restaurantLocation;
+        
         restaurantLocation.latitude = [restaurantInfo[@"lat"] floatValue];
         restaurantLocation.longitude = [restaurantInfo[@"long"] floatValue];
         
         GMSMarker *marker = [[GMSMarker alloc]init];
+        
         marker.position = restaurantLocation;
         marker.title = restaurantInfo[@"name"];
-        float ratingRound = roundf([restaurantInfo[@"ratings"] floatValue]);
+        
+        NSString *ratingUnround = restaurantInfo[@"ratings"];
+        
+        float ratingRound = roundf([ratingUnround floatValue]);
+        
         if (ratingRound == 0)
         {
             marker.snippet = @"Ratings: \u2606 \u2606 \u2606 \u2606 \u2606";
         }
         else {
-            NSMutableString *snippetMutable = [[NSMutableString alloc]initWithString:@"Ratings:"];
-            
-            for (int i = 0;i < (int)ratingRound;i++)
-            {
-                [snippetMutable appendString:@" \u272D"];
-            }
-            for (int i = 0;i < abs(((int)ratingRound - 5));i++)
-            {
-                [snippetMutable appendString:@" \u2606"];
-            }
-            marker.snippet = [NSString stringWithString:snippetMutable];
+            marker.snippet = [self createStarRatingStringWithSize:(int)ratingRound];
         }
         marker.map = _restaurantMap.mapView;
     }
+}
+
+- (NSString *)createStarRatingStringWithSize:(int)ratingSize {
+    NSMutableString *snippetMutable = [[NSMutableString alloc]initWithString:@"Ratings:"];
     
+    for (int index = 0;index < ratingSize;index++)
+    {
+        [snippetMutable appendString:@" \u272D"];
+    }
+    
+    int maximumRatingStarSize = 5;
+    int remaningBlankStarSize = abs(((int)ratingSize - maximumRatingStarSize));
+    
+    for (int index = 0;index < remaningBlankStarSize;index++)
+    {
+        [snippetMutable appendString:@" \u2606"];
+    }
+    return [NSString stringWithString:snippetMutable];
 }
 
 - (void)startLocationServices {
@@ -76,15 +86,28 @@
         _locationManager = [[CLLocationManager alloc]init];
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [self checkLocationAccess];
         [_locationManager startUpdatingLocation];
     }
 }
 
-- (void)centerToLocation:(CLLocation *)location {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude zoom:_zoom];
-    _restaurantMap.mapView.camera = camera;
-    _restaurantMap.mapView.myLocationEnabled = true;
+- (void)checkLocationAccess {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    switch (status) {
+        case kCLAuthorizationStatusDenied:
+            [_locationManager requestWhenInUseAuthorization];
+            break;
+        case kCLAuthorizationStatusRestricted:
+            break;
+        case kCLAuthorizationStatusNotDetermined:
+            [_locationManager requestWhenInUseAuthorization];
+        case kCLAuthorizationStatusAuthorizedAlways:
+            break;
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            break;
+    }
 }
+
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     NSString *msg = [NSString stringWithFormat:@"There was an error retrieving your location/%@",error.localizedDescription];
@@ -94,6 +117,16 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     CLLocation *crnLoc = [locations lastObject];
     [self centerToLocation:crnLoc];
+}
+
+- (void)centerToLocation:(CLLocation *)location {
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude zoom:_zoom];
+    _restaurantMap.mapView.camera = camera;
+    _restaurantMap.mapView.myLocationEnabled = true;
+}
+
+- (IBAction)goToBack:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 /*
 #pragma mark - Navigation

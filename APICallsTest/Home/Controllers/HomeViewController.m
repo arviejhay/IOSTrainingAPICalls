@@ -10,7 +10,12 @@
 
 @interface HomeViewController ()
 
+@property(copy, readwrite) NSString *latitude;
+@property(copy, readwrite) NSString *longitude;
+
 - (void)insertCategoryToCollection:(id)currentItem;
+- (void)startLocationServices;
+- (void)showAlertWith:(NSString *)message;
 
 @end
 
@@ -19,21 +24,59 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self startLocationServices];
     [self initializeView];
     
     _categories = [[NSMutableArray alloc] init];
     _hvc = self;
-    
-    [self initializeAPIResources];
+}
 
+- (void)startLocationServices {
+    if (_locationManager == nil) {
+        _locationManager = [[CLLocationManager alloc]init];
+        _locationManager.delegate = self;
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        [self checkLocationAccess];
+        [_locationManager requestLocation];
+        
+    }
+}
+
+- (void)checkLocationAccess {
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    switch (status) {
+        case kCLAuthorizationStatusDenied:
+            [_locationManager requestWhenInUseAuthorization];
+            break;
+        case kCLAuthorizationStatusRestricted:
+            break;
+        case kCLAuthorizationStatusNotDetermined:
+            [_locationManager requestWhenInUseAuthorization];
+        case kCLAuthorizationStatusAuthorizedAlways:
+            break;
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSString *msg = [NSString stringWithFormat:@"There was an error retrieving your location/%@",error.localizedDescription];
+    NSLog(@"Error: %@",msg);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *crnLoc = [locations lastObject];
+    _latitude =  [[NSNumber numberWithDouble:crnLoc.coordinate.latitude] stringValue];
+    _longitude = [[NSNumber numberWithDouble:crnLoc.coordinate.longitude] stringValue];
+    [self initializeAPIResources];
 }
 
 - (void)initializeView {
     NSString *viewName = @"HomeView";
     
     _homeView = (HomeView *)[[[NSBundle mainBundle] loadNibNamed:viewName owner:self options:nil] objectAtIndex:0];
-    _homeView.frame =  self.view.frame;
+    _homeView.frame = self.view.bounds;
+    _homeView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
     
     _homeView.homeTableView.delegate = self;
     _homeView.homeTableView.dataSource = self;
@@ -76,6 +119,7 @@
     
     _api.failureBlock = ^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@",error);
+        [hvcInner showAlertWith:@"Getting Category Data Failed, Please check your internet connection"];
     };
     
     [self retrieveDataWithSuccess:_api.successBlock withFailure:_api.failureBlock withParameters:nil];
@@ -115,18 +159,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Category *selectedCategory = _categories[indexPath.row];
     NSString *selectedCategoryInfo = [NSString stringWithFormat:@"%d-%@", selectedCategory.categoryID,selectedCategory.categoryName];
-    [self performSegueWithIdentifier:@"CategorySegue" sender:selectedCategoryInfo];
+    [self performSegueWithIdentifier:@"RestaurantSegue" sender:selectedCategoryInfo];
     [_homeView.homeTableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"CategorySegue"]) {
+    if ([segue.identifier isEqualToString:@"RestaurantSegue"]) {
         NSArray *splitCategory = [[NSArray alloc] init];
         splitCategory = [sender componentsSeparatedByString:@"-"];
-        RestaurantsViewController *rvc = [segue destinationViewController];
+        UINavigationController *navVC = [segue destinationViewController];
+
+        RestaurantsViewController *rvc = navVC.viewControllers[0];
         rvc.selectedCategoryID = splitCategory[0];
         rvc.selectedCategoryTitle.title = splitCategory[1];
+        rvc.latitude = _latitude;
+        rvc.longitude = _longitude;
     }
 }
+
+- (void)showAlertWith:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Message" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    }];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:true completion:nil];
+}
+
 
 @end
