@@ -29,4 +29,5 @@ target 'APICallsTest' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController', :git => 'https://github.com/FWAlex/JSQMessagesViewController.git'
+  pod 'CBZSplashView', '~> 1.0.0'
 end

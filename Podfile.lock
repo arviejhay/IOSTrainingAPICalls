@@ -20,6 +20,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - CBZSplashView (1.0.0)
   - Firebase/Auth (6.12.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.3.1)
@@ -158,6 +159,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - CBZSplashView (~> 1.0.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -172,6 +174,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - BoringSSL-GRPC
+    - CBZSplashView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -209,6 +212,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  CBZSplashView: 9ce4cba22024476ff4a97d6433e7347da6376016
   Firebase: da031bc7012374e3bed17a6731b89327b29863b9
   FirebaseAnalytics: 4e53a7eb7b76bc703c4d9239bc964545e9b23361
   FirebaseAuth: b401a012cc33b04df3b52bb308b04e8766f2693e
@@ -235,6 +239,6 @@ SPEC CHECKSUMS:
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
 
-PODFILE CHECKSUM: fda5ac40ab8bb591220cdd3d75b487f7b7da4813
+PODFILE CHECKSUM: 9ab78b77c5f25ae853756f193face7fdae209530
 
 COCOAPODS: 1.8.4

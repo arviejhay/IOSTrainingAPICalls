@@ -72,6 +72,7 @@
 }
 
 - (void)initializeView {
+    
     NSString *viewName = @"HomeView";
     
     _homeView = (HomeView *)[[[NSBundle mainBundle] loadNibNamed:viewName owner:self options:nil] objectAtIndex:0];
@@ -89,6 +90,12 @@
     [_homeView.homeTableView setHidden:true];
     
     [self.view addSubview:_homeView];
+    
+    UIImage *icon = [UIImage imageNamed:@"logo5"];
+    UIColor *color = [UIColor blackColor];
+    CBZSplashView *splashView = [CBZSplashView splashViewWithIcon:icon backgroundColor:color];
+    [self.view addSubview:splashView];
+    [splashView startAnimation];
 }
 
 - (void)initializeAPIResources {

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AFNetworking/AFNetworking.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CBZSplashView/CBZSplashView.h>
+
 
 #import "../Views/HomeView.h"
 #import "../Views/Cells/HomeTableViewCell.h"
